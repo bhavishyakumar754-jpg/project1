@@ -1,85 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Collection — VELL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style2.css" />
+</head>
 
-<link rel="stylesheet" href="style2.css">
+<body>
+  <div class="cursor" id="cursor"></div>
 
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">KIWAD</a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Collection</a></li>
+      <li><a href="newpage/">new arrivals</a></li>
+      <li><a href="newpage/about/sale/">Sale</a></li>
+      <li><a href="../">Home</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button>Search</button>
+      <button>Bag (0)</button>
+    </div>
+  </nav>
 
-<div class="cursor" id="cursor"></div>
+  <!-- HERO -->
+  <section class="collection-hero">
+    <div class="hero-text">
+      <h1>SS <em>'25</em><br>Collection</h1>
+      <p class="hero-sub">Spring / Summer — Quiet Luxury</p>
+    </div>
+    <div class="hero-meta">
+      <p>Pieces Available</p>
+      <span id="item-count">24</span>
+    </div>
+  </section>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">KIWAD</a>
-  <ul class="nav-links">
-    
-    <li><a href="#" class="active">Collection</a></li>
-    <li><a href="newpage">new arrivals</a></li>
-    <li><a href="/">Sale</a></li>
-    <li><a href="/layout/">Home</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button>Search</button>
-    <button>Bag (0)</button>
+  <!-- FILTERS -->
+  <div class="filters-bar" id="filters-bar">
+    <div class="filter-tags" id="filter-tags">
+      <button class="filter-tag active" data-filter="all">All</button>
+      <button class="filter-tag" data-filter="tops">Tops</button>
+      <button class="filter-tag" data-filter="trousers">Trousers</button>
+      <button class="filter-tag" data-filter="outerwear">Outerwear</button>
+      <button class="filter-tag" data-filter="dresses">Dresses</button>
+      <button class="filter-tag" data-filter="accessories">Accessories</button>
+    </div>
+    <select class="sort-select" id="sort-select">
+      <option value="featured">Sort: Featured</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="newest">Newest</option>
+    </select>
   </div>
-</nav>
 
-<!-- HERO -->
-<section class="collection-hero">
-  <div class="hero-text">
-    <h1>SS <em>'25</em><br>Collection</h1>
-    <p class="hero-sub">Spring / Summer — Quiet Luxury</p>
+  <!-- GRID -->
+  <section class="collection-grid" id="grid">
+    <div class="no-results" id="no-results">
+      <h3>No pieces found</h3>
+      <p>Try a different filter</p>
+    </div>
+  </section>
+
+  <!-- LOAD MORE -->
+  <div class="load-more-wrap">
+    <button class="btn-load-more" id="load-more-btn">Load More</button>
   </div>
-  <div class="hero-meta">
-    <p>Pieces Available</p>
-    <span id="item-count">24</span>
-  </div>
-</section>
 
-<!-- FILTERS -->
-<div class="filters-bar" id="filters-bar">
-  <div class="filter-tags" id="filter-tags">
-    <button class="filter-tag active" data-filter="all">All</button>
-    <button class="filter-tag" data-filter="tops">Tops</button>
-    <button class="filter-tag" data-filter="trousers">Trousers</button>
-    <button class="filter-tag" data-filter="outerwear">Outerwear</button>
-    <button class="filter-tag" data-filter="dresses">Dresses</button>
-    <button class="filter-tag" data-filter="accessories">Accessories</button>
-  </div>
-  <select class="sort-select" id="sort-select">
-    <option value="featured">Sort: Featured</option>
-    <option value="price-asc">Price: Low to High</option>
-    <option value="price-desc">Price: High to Low</option>
-    <option value="newest">Newest</option>
-  </select>
-</div>
+  <!-- FOOTER -->
+  <footer class="footer-strip">
+    <p>© 2025 Vell — All rights reserved</p>
+    <p>Free delivery on orders over ₹5,000</p>
+  </footer>
 
-<!-- GRID -->
-<section class="collection-grid" id="grid">
-  <div class="no-results" id="no-results">
-    <h3>No pieces found</h3>
-    <p>Try a different filter</p>
-  </div>
-</section>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
 
-<!-- LOAD MORE -->
-<div class="load-more-wrap">
-  <button class="btn-load-more" id="load-more-btn">Load More</button>
-</div>
+  <!-- ─── SCRIPTS ─── -->
+  <script src="index2.js"></script>
+</body>
 
-<!-- FOOTER -->
-<footer class="footer-strip">
-  <p>© 2025 Vell — All rights reserved</p>
-  <p>Free delivery on orders over ₹5,000</p>
-</footer>
-
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
-
-<!-- ─── SCRIPTS ─── -->
- <script src="index2.js"></script>
- </body>
 </html>

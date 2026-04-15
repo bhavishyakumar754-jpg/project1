@@ -5,6 +5,8 @@
       --white: #ffffff;
       --off: #f7f6f4;
       --ink: #111111;
+      --off-white: #f7f6f4;
+      --charcoal: #111111;
       --mid: #888;
       --accent: #c8a97e;
       --line: #e8e6e2;
@@ -14,11 +16,11 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-       background: var(--off-white);
-    color: var(--charcoal);
-    overflow-x: hidden;
-   cursor: none;
-}
+      background: var(--off);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
     
 
     /* CUSTOM CURSOR */
@@ -54,12 +56,12 @@
     nav.scrolled { border-color: var(--line); }
 
     .nav-logo {
-       font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 6px;
-    color: var(--charcoal);
-    text-decoration: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      color: var(--ink);
+      text-decoration: none;
     }
 
     .nav-links {
