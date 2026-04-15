@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIWAD — Women's Fashion</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">\ <nav id="navbar"> <a href="#" class="nav-logo">KIW<span>A</span>D</a>
+    <ul class="nav-links">
+      <li><a href="collections">Collections</a></li>
+      <li><a href="collections/newpage/">New Arrivals</a></li>
+      <li><a href="/layout/collections/newpage/about/sale">Sale</a></li>
+      <li><a href="/layout/collections/newpage/about/">About</a></li>
+            
+    </ul>
+    <div class="nav-icons"> <button title="Search"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg> </button> <button title="Account"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg> </button>
+      <div class="nav-cart-badge"> <button title="Cart"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg> </button> <span>3</span> </div>
+    </div>
+  </nav> <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="cursor" id="cursor"></div>
+    <div class="slide slide-1 active"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <div class="slide slide-4"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">New Collection — Spring 2026</p>
+      <h1 class="hero-title">Dressed in<br><em>Quiet Luxury</em></h1>
+      <p class="hero-sub">Timeless silhouettes crafted from the finest materials. Fashion that speaks in whispers.</p>
+      <div class="hero-cta"> <a href="#products" class="btn-primary">Explore Collection</a> <a href="#categories"
+          class="btn-outline">View Lookbook</a> </div>
+    </div>
+    <div class="slide-dots">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+      <div class="dot" onclick="goToSlide(3)"></div>
+    </div>
+    <div class="slide-counter"> <span id="slide-num">01</span> / 04 </div>
+    <div class="scroll-hint">
+      <p>Scroll</p>
+      <div class="scroll-line"></div>
+    </div>
+  </section> <!-- ─── MARQUEE ─── -->
+  <div class="marquee-strip">
+    <div class="marquee-track"> <span>New Arrivals</span><span class="dot-sep">✦</span> <span>Spring / Summer
+        2026</span><span class="dot-sep">✦</span> <span>Free Shipping Over ₹4999</span><span class="dot-sep">✦</span>
+      <span>Sustainable Fashion</span><span class="dot-sep">✦</span> <span>Handcrafted Quality</span><span
+        class="dot-sep">✦</span> <span>Exclusive Members Sale</span><span class="dot-sep">✦</span> <span>New
+        Arrivals</span><span class="dot-sep">✦</span> <span>Spring / Summer 2026</span><span class="dot-sep">✦</span>
+      <span>Free Shipping Over ₹4999</span><span class="dot-sep">✦</span> <span>Sustainable Fashion</span><span
+        class="dot-sep">✦</span> <span>Handcrafted Quality</span><span class="dot-sep">✦</span> <span>Exclusive Members
+        Sale</span><span class="dot-sep">✦</span> </div>
+  </div> <!-- ─── CATEGORIES ─── -->
+  <section class="categories" id="categories">
+    <p class="section-label">Shop By Category</p>
+    <h2 class="section-title">Curated for<br><em>Every Occasion</em></h2>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-1"></div>
+        <div class="cat-info">
+          <h3>Evening Wear</h3>
+          <p>48 Pieces</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-2"></div>
+        <div class="cat-info">
+          <h3>Daywear</h3>
+          <p>76 Pieces</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-3"></div>
+        <div class="cat-info">
+          <h3>Outerwear</h3>
+          <p>34 Pieces</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-4"></div>
+        <div class="cat-info">
+          <h3>Accessories</h3>
+          <p>92 Pieces</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-5"></div>
+        <div class="cat-info">
+          <h3>Workwear</h3>
+          <p>55 Pieces</p>
+        </div>
+      </div>
+    </div>
+  </section> <!-- ─── PRODUCTS ─── -->
+  <section class="products" id="products">
+    <p class="section-label">New Arrivals</p>
+    <h2 class="section-title">This Season's<br><em>Favourites</em></h2>
+    <div class="filter-bar"> <button class="filter-btn active" onclick="setFilter(this)">All</button> <button
+        class="filter-btn" onclick="setFilter(this)">Dresses</button> <button class="filter-btn"
+        onclick="setFilter(this)">Tops</button> <button class="filter-btn" onclick="setFilter(this)">Bottoms</button>
+      <button class="filter-btn" onclick="setFilter(this)">Jackets</button> <button class="filter-btn"
+        onclick="setFilter(this)">Sets</button> </div>
+    <div class="product-grid"> <!-- Card 1 -->
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-bg pb-1"> <img
+              src="https://static.vecteezy.com/system/resources/thumbnails/060/843/811/small/close-up-of-raindrops-on-leaves-hd-background-luxury-hd-wallpaper-image-trendy-background-illustration-free-photo.jpg" />
+          </div>
+          <div class="product-tag tag-new">New</div>
+          <div class="product-actions"> <button class="btn-cart" onclick="addToCart(this)">Add to Bag</button> <button
+              class="btn-wish">♡</button> </div>
+        </div>
+        <div class="product-name">Silk Slip Dress</div>
+        <div class="product-price-row"> <span class="product-price">₹8,490</span> </div>
+        <div class="product-colors">
+          <div class="color-swatch" style="background:#c8b4a2;"></div>
+          <div class="color-swatch" style="background:#4a3028;"></div>
+          <div class="color-swatch" style="background:#1a1a1a;"></div>
+        </div>
+      </div> <!-- Card 2 -->
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-bg pb-2"></div>
+          <div class="product-tag tag-sale">−30%</div>
+          <div class="product-actions"> <button class="btn-cart" onclick="addToCart(this)">Add to Bag</button> <button
+              class="btn-wish">♡</button> </div>
+        </div>
+        <div class="product-name">Linen Blazer</div>
+        <div class="product-price-row"> <span class="product-price">₹5,950</span> <span
+            class="product-price-old">₹8,500</span> </div>
+        <div class="product-colors">
+          <div class="color-swatch" style="background:#d4c4b4;"></div>
+          <div class="color-swatch" style="background:#8c6c58;"></div>
+        </div>
+      </div> <!-- Card 3 -->
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-bg pb-3"></div>
+          <div class="product-actions"> <button class="btn-cart" onclick="addToCart(this)">Add to Bag</button> <button
+              class="btn-wish">♡</button> </div>
+        </div>
+        <div class="product-name">Pleated Midi Skirt</div>
+        <div class="product-price-row"> <span class="product-price">₹4,290</span> </div>
+        <div class="product-colors">
+          <div class="color-swatch" style="background:#e0cfc4;"></div>
+          <div class="color-swatch" style="background:#9c7c68;"></div>
+          <div class="color-swatch" style="background:#3a2a1e;"></div>
+        </div>
+      </div> <!-- Card 4 -->
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-bg pb-4"></div>
+          <div class="product-tag tag-new">New</div>
+          <div class="product-actions"> <button class="btn-cart" onclick="addToCart(this)">Add to Bag</button> <button
+              class="btn-wish">♡</button> </div>
+        </div>
+        <div class="product-name">Cashmere Wrap Top</div>
+        <div class="product-price-row"> <span class="product-price">₹6,750</span> </div>
+        <div class="product-colors">
+          <div class="color-swatch" style="background:#c4a494;"></div>
+          <div class="color-swatch" style="background:#705848;"></div>
+        </div>
+      </div> <!-- Card 5 -->
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-bg pb-5"></div>
+          <div class="product-actions"> <button class="btn-cart" onclick="addToCart(this)">Add to Bag</button> <button
+              class="btn-wish">♡</button> </div>
+        </div>
+        <div class="product-name">Wide-Leg Trousers</div>
+        <div class="product-price-row"> <span class="product-price">₹3,990</span> </div>
+        <div class="product-colors">
+          <div class="color-swatch" style="background:#d8c4b8;"></div>
+          <div class="color-swatch" style="background:#1a1a1a;"></div>
+          <div class="color-swatch" style="background:#846454;"></div>
+        </div>
+      </div> <!-- Card 6 -->
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-bg pb-6"></div>
+          <div class="product-tag tag-sale">−20%</div>
+          <div class="product-actions"> <button class="btn-cart" onclick="addToCart(this)">Add to Bag</button> <button
+              class="btn-wish">♡</button> </div>
+        </div>
+        <div class="product-name">Draped Maxi Dress</div>
+        <div class="product-price-row"> <span class="product-price">₹7,200</span> <span
+            class="product-price-old">₹9,000</span> </div>
+        <div class="product-colors">
+          <div class="color-swatch" style="background:#c0a898;"></div>
+          <div class="color-swatch" style="background:#503828;"></div>
+        </div>
+      </div> <!-- Card 7 -->
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-bg pb-7"></div>
+          <div class="product-tag tag-new">New</div>
+          <div class="product-actions"> <button class="btn-cart" onclick="addToCart(this)">Add to Bag</button> <button
+              class="btn-wish">♡</button> </div>
+        </div>
+        <div class="product-name">Tailored Coat</div>
+        <div class="product-price-row"> <span class="product-price">₹14,500</span> </div>
+        <div class="product-colors">
+          <div class="color-swatch" style="background:#1a1a1a;"></div>
+          <div class="color-swatch" style="background:#8c7b6e;"></div>
+        </div>
+      </div> <!-- Card 8 -->
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-bg pb-8"></div>
+          <div class="product-actions"> <button class="btn-cart" onclick="addToCart(this)">Add to Bag</button> <button
+              class="btn-wish">♡</button> </div>
+        </div>
+        <div class="product-name">Silk Cami Set</div>
+        <div class="product-price-row"> <span class="product-price">₹9,800</span> </div>
+        <div class="product-colors">
+          <div class="color-swatch" style="background:#e0cfc4;"></div>
+          <div class="color-swatch" style="background:#a09080;"></div>
+          <div class="color-swatch" style="background:#1a1a1a;"></div>
+        </div>
+      </div>
+    </div>
+  </section> <!-- ─── EDITORIAL ─── -->
+  <div class="editorial">
+    <div class="editorial-visual"></div>
+    <div class="editorial-text">
+      <p class="section-label">The Edit</p>
+      <h2 class="section-title">Dressed for the<br><em>Life You Live</em></h2>
+      <p>Our Spring collection draws from the quiet confidence of women who know themselves. Every cut, every fabric,
+        every detail speaks of intentionality and grace.</p> <a href="#" class="btn-primary"
+        style="align-self: flex-start;">Read the Story</a>
+    </div>
+  </div> <!-- ─── TESTIMONIALS ─── -->
+  <section class="testimonials">
+    <p class="section-label">What They Say</p>
+    <h2 class="section-title">Loved by Women<br><em>Everywhere</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>The silk slip dress I ordered arrived beautifully packaged. The fabric is incredibly luxurious and the fit is
+          absolutely perfect. Will be ordering again.</p>
+        <div class="testi-author">Priya Sharma — Mumbai</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>Finally a brand that understands that less is more. The tailoring on the blazer is exceptional — I've
+          received so many compliments wearing it to meetings.</p>
+        <div class="testi-author">Ananya Iyer — Bangalore</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>The quality is outstanding and the attention to detail is evident in every stitch. The colour palette is
+          sophisticated and versatile. Genuinely love this brand.</p>
+        <div class="testi-author">Kavitha Nair — Delhi</div>
+      </div>
+    </div>
+  </section> <!-- ─── NEWSLETTER ─── -->
+  <section class="newsletter">
+    <p class="section-label" style="color:var(--blush)">Stay in the Loop</p>
+    <h2 class="section-title">Join the Inner<br><em>Circle</em></h2>
+    <p>Early access to new collections, exclusive offers, and style notes from our team.</p>
+    <div class="newsletter-form"> <input type="email" placeholder="Your email address" /> <button>Subscribe</button>
+    </div>
+  </section> <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"> <a href="#" class="nav-logo">KIW<span>A</span>D</a>
+        <p>Quiet luxury for the modern Indian woman. Crafted with care, worn with confidence.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Dresses</a></li>
+          <li><a href="#">Tops & Blouses</a></li>
+          <li><a href="#">Bottoms</a></li>
+          <li><a href="#">Outerwear</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Care Instructions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About VELOUR</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 VELOUR. All rights reserved.</p>
+      <div class="social-links"> <a href="#">Insta</a> <a href="#">Pinterest</a> <a href="#">Twitter</a> </div>
+    </div>
+  </footer> <!-- ─── SCRIPTS ─── -->
+  <script src="index.js"></script>
+  </body>
+
+</html>

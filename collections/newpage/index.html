@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Arrivals – Latest Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --cream: #FAF7F2;
+    --cream-dark: #F2EDE4;
+    --brown-light: #C9A97A;
+    --brown: #8B6340;
+    --brown-dark: #5C3D1E;
+    --brown-deeper: #3B2210;
+    --gold: #C9972A;
+    --gold-light: #E8C96A;
+    --gold-pale: #FDF3DC;
+    --text-dark: #2A1A0A;
+    --text-mid: #6B4C2A;
+    --text-light: #9C7A52;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* CUSTOM CURSOR */
+    body {
+      cursor: none;
+    }
+    .cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--ink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.25s ease, height 0.25s ease, background 0.25s ease;
+      --ink: #2A1A0A;
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      
+    }
+    .cursor.hover {
+      width: 36px; height: 36px;
+      background: transparent;
+      border: 1px solid var(--ink);
+    }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,169,122,0.3);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 72px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--brown-dark);
+    letter-spacing: 1px;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 13px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-mid); transition: color 0.3s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-icons { display: flex; gap: 1.2rem; align-items: center; }
+  .nav-icons svg { width: 20px; height: 20px; stroke: var(--brown); cursor: pointer; transition: stroke 0.3s; }
+  .nav-icons svg:hover { stroke: var(--gold); }
+  .cart-badge {
+    position: relative; display: inline-block;
+  }
+  .cart-badge::after {
+    content: '3';
+    position: absolute; top: -6px; right: -8px;
+    background: var(--gold); color: white;
+    font-size: 9px; font-weight: 700;
+    width: 16px; height: 16px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    margin-top: 72px;
+    min-height: 85vh;
+    background: linear-gradient(135deg, var(--brown-deeper) 0%, var(--brown-dark) 50%, var(--brown) 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    text-align: center;
+    padding: 4rem 5%;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(201,151,42,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(201,151,42,0.12) 0%, transparent 70%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--gold-light) 0px, var(--gold-light) 1px,
+      transparent 1px, transparent 40px
+    );
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 700px; }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(201,151,42,0.6);
+    color: var(--gold-light);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    padding: 8px 24px; border-radius: 40px;
+    margin-bottom: 2rem;
+    animation: fadeDown 0.8s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    animation: fadeDown 0.8s 0.15s ease both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero p {
+    font-size: 16px; font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8; max-width: 500px; margin: 0 auto 2.5rem;
+    letter-spacing: 0.3px;
+    animation: fadeDown 0.8s 0.3s ease both;
+  }
+  .hero-cta {
+    display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    animation: fadeDown 0.8s 0.45s ease both;
+  }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--brown-light) 100%);
+    color: var(--white);
+    padding: 14px 36px; border: none; border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,151,42,0.4); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 13px 36px; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll svg { width: 20px; height: 20px; }
+
+  /* ── FILTER BAR ── */
+  .filter-section {
+    background: var(--white);
+    border-bottom: 1px solid rgba(201,169,122,0.2);
+    padding: 1.2rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    position: sticky; top: 72px; z-index: 50;
+  }
+  .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .filter-tab {
+    padding: 8px 20px; border-radius: 40px;
+    border: 1px solid rgba(201,169,122,0.4);
+    background: transparent; color: var(--text-mid);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .filter-tab:hover { border-color: var(--gold); color: var(--brown-dark); }
+  .filter-tab.active {
+    background: var(--brown-dark); border-color: var(--brown-dark);
+    color: var(--white);
+  }
+  .sort-select {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 500; letter-spacing: 1px;
+    border: 1px solid rgba(201,169,122,0.4); border-radius: 4px;
+    padding: 8px 16px; background: transparent; color: var(--text-mid);
+    cursor: pointer; outline: none;
+  }
+  .items-count {
+    font-size: 12px; color: var(--text-light); letter-spacing: 0.5px;
+  }
+
+  /* ── PRODUCTS SECTION ── */
+  .products-section {
+    padding: 4rem 5%;
+    max-width: 1400px; margin: 0 auto;
+  }
+  .section-header {
+    text-align: center; margin-bottom: 3rem;
+  }
+  .section-tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.75rem; display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--brown-deeper);
+    font-weight: 600;
+  }
+  .section-title span { color: var(--gold); font-style: italic; }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  /* ── PRODUCT CARD ── */
+  .product-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    animation: fadeUp 0.6s ease both;
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(91,61,30,0.15);
+  }
+  .product-image-wrap {
+    position: relative; overflow: hidden;
+    aspect-ratio: 3/4;
+    background: var(--cream-dark);
+  }
+  .product-image-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .product-card:hover .product-image-wrap img {
+    transform: scale(1.07);
+  }
+  .product-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--brown-dark); color: var(--white);
+    font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 3px;
+    z-index: 2;
+  }
+  .product-badge.gold { background: var(--gold); }
+  .product-badge.sale { background: #B04040; }
+  .product-actions {
+    position: absolute; top: 12px; right: 12px;
+    display: flex; flex-direction: column; gap: 8px;
+    opacity: 0; transform: translateX(10px);
+    transition: all 0.3s;
+    z-index: 2;
+  }
+  .product-card:hover .product-actions {
+    opacity: 1; transform: translateX(0);
+  }
+  .action-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--white); border: 1px solid rgba(201,169,122,0.3);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .action-btn:hover { background: var(--gold); border-color: var(--gold); }
+  .action-btn:hover svg { stroke: white; }
+  .action-btn svg { width: 15px; height: 15px; stroke: var(--brown); fill: none; }
+  .quick-add {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: var(--brown-dark);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    text-align: center; padding: 13px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    border: none; cursor: pointer; width: 100%;
+  }
+  .product-card:hover .quick-add { transform: translateY(0); }
+  .quick-add:hover { background: var(--gold); }
+
+  .product-info { padding: 1.2rem; }
+  .product-category {
+    font-size: 10px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .product-name {
+    font-size: 15px; font-weight: 600;
+    color: var(--brown-deeper); margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  .product-desc {
+    font-size: 12px; color: var(--text-light);
+    margin-bottom: 0.8rem; line-height: 1.6;
+  }
+  .product-footer {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .price { font-size: 17px; font-weight: 700; color: var(--brown-dark); }
+  .price-original {
+    font-size: 13px; color: var(--text-light);
+    text-decoration: line-through; margin-left: 6px; font-weight: 400;
+  }
+  .rating {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 11px; color: var(--text-light);
+  }
+  .stars { color: var(--gold); font-size: 11px; }
+  .color-swatches {
+    display: flex; gap: 5px; margin-top: 0.6rem;
+  }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    cursor: pointer; transition: transform 0.2s;
+  }
+  .swatch:hover { transform: scale(1.3); }
+
+  /* ── BANNER STRIP ── */
+  .banner-strip {
+    background: var(--brown-deeper);
+    color: rgba(255,255,255,0.6);
+    text-align: center; padding: 14px;
+    font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    overflow: hidden;
+  }
+  .banner-strip span { color: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--brown-deeper);
+    color: rgba(255,255,255,0.6);
+    padding: 4rem 5% 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 600;
+    color: var(--white); margin-bottom: 1rem;
+  }
+  .footer-brand .logo span { color: var(--gold); }
+  .footer-brand p {
+    font-size: 13px; line-height: 1.8; max-width: 280px;
+    margin-bottom: 1.5rem;
+  }
+  .social-links { display: flex; gap: 12px; }
+  .social-link {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(201,169,122,0.3);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .social-link:hover { border-color: var(--gold); background: rgba(201,151,42,0.15); }
+  .social-link svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; }
+  .social-link:hover svg { stroke: var(--gold); }
+  .footer-col h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--white); margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li {
+    font-size: 13px; margin-bottom: 0.7rem;
+    cursor: pointer; transition: color 0.2s;
+  }
+  .footer-col li:hover { color: var(--gold-light); }
+  .footer-newsletter { margin-top: 1rem; }
+  .newsletter-form {
+    display: flex; margin-top: 0.8rem;
+    border: 1px solid rgba(201,169,122,0.3); border-radius: 4px; overflow: hidden;
+  }
+  .newsletter-form input {
+    flex: 1; background: transparent; border: none; outline: none;
+    padding: 10px 14px; font-family: 'Montserrat', sans-serif;
+    font-size: 12px; color: var(--white);
+  }
+  .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+  .newsletter-form button {
+    background: var(--gold); border: none;
+    padding: 10px 16px; cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 1px;
+    color: var(--white); transition: background 0.2s;
+  }
+  .newsletter-form button:hover { background: var(--brown-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(201,169,122,0.15);
+    padding-top: 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+    font-size: 12px;
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; margin-left: 1.5rem; }
+  .footer-bottom a:hover { color: var(--gold-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: inline-flex; gap: 3rem;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .filter-section { top: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MAISON<span>.</span>ÉLITE</div>
+  <ul class="nav-links">
+     <li><a href="/layout/collections/">Collections</a></li>
+    <li><a href="#" class="active">New Arrivals</a></li>
+    <li><a href="/layout/collections/newpage/about/sale/">Sale</a></li>
+    <li><a href="/layout/">Home</a></li>
+  </ul>
+  <div class="nav-icons">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <div class="cart-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    </div>
+  </div>
+</nav>
+
+<!-- BANNER STRIP -->
+<div style="margin-top:72px;" class="banner-strip">
+  <div class="marquee-track">
+    <span>Free shipping on orders over $150</span> &nbsp;·&nbsp;
+    <span>New Season <span>SS 2025</span> Now Available</span> &nbsp;·&nbsp;
+    <span>Use code <span>NEWSTYLE15</span> for 15% off first order</span> &nbsp;·&nbsp;
+    <span>Free shipping on orders over $150</span> &nbsp;·&nbsp;
+    <span>New Season <span>SS 2025</span> Now Available</span> &nbsp;·&nbsp;
+    <span>Use code <span>NEWSTYLE15</span> for 15% off first order</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="margin-top:0;">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Spring / Summer 2025</div>
+    <h1>The <em>New</em><br>Arrivals Edit</h1>
+    <p>Discover our freshest pieces — curated for the modern woman who dresses with intention, elegance, and effortless style.</p>
+    <div class="hero-cta">
+      <a href="#collection" class="btn-gold">Shop the Collection</a>
+      <a href="#" class="btn-outline">View Lookbook</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    Scroll
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-section">
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterProducts(this,'all')">All (12)</button>
+    <button class="filter-tab" onclick="filterProducts(this,'tops')">Tops</button>
+    <button class="filter-tab" onclick="filterProducts(this,'dresses')">Dresses</button>
+    <button class="filter-tab" onclick="filterProducts(this,'outerwear')">Outerwear</button>
+    <button class="filter-tab" onclick="filterProducts(this,'bottoms')">Bottoms</button>
+  </div>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <span class="items-count" id="count">Showing 12 items</span>
+    <select class="sort-select">
+      <option>Sort: Newest First</option>
+      <option>Price: Low to High</option>
+      <option>Price: High to Low</option>
+      <option>Best Sellers</option>
+    </select>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="collection">
+  <div class="section-header">
+    <span class="section-tag">Just Landed</span>
+    <h2 class="section-title">New <span>Arrivals</span></h2>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+
+    <!-- Card 1 -->
+    <div class="product-card" data-cat="dresses" style="animation-delay:0.05s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&q=80" alt="Silk Wrap Dress">
+        <span class="product-badge gold">New</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Dresses</div>
+        <div class="product-name">Silk Wrap Midi Dress</div>
+        <div class="product-desc">Fluid silk-blend in warm ivory tone</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#F5ECD7;"></div>
+          <div class="swatch" style="background:#C4956A;"></div>
+          <div class="swatch" style="background:#3B2210;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$189</span></div>
+          <div class="rating"><span class="stars">★★★★★</span> 4.9</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card" data-cat="tops" style="animation-delay:0.1s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4b4a5b?w=500&q=80" alt="Linen Blouse">
+        <span class="product-badge">Trending</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Tops</div>
+        <div class="product-name">Relaxed Linen Blouse</div>
+        <div class="product-desc">Breathable linen with wide-cut sleeves</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#EDE0D0;"></div>
+          <div class="swatch" style="background:#B08060;"></div>
+          <div class="swatch" style="background:#E8C96A;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$95</span></div>
+          <div class="rating"><span class="stars">★★★★☆</span> 4.6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card" data-cat="outerwear" style="animation-delay:0.15s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=500&q=80" alt="Camel Coat">
+        <span class="product-badge gold">Bestseller</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Outerwear</div>
+        <div class="product-name">Tailored Camel Coat</div>
+        <div class="product-desc">Double-breasted heritage wool blend</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#C9A97A;"></div>
+          <div class="swatch" style="background:#8B6340;"></div>
+          <div class="swatch" style="background:#2A1A0A;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$340</span></div>
+          <div class="rating"><span class="stars">★★★★★</span> 5.0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="product-card" data-cat="bottoms" style="animation-delay:0.2s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80" alt="Wide Leg Trousers">
+        <span class="product-badge sale">Sale</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Bottoms</div>
+        <div class="product-name">Wide Leg Trousers</div>
+        <div class="product-desc">High-waist crepe in warm tobacco</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#8B6340;"></div>
+          <div class="swatch" style="background:#F5ECD7;"></div>
+          <div class="swatch" style="background:#2A1A0A;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$118</span><span class="price-original">$155</span></div>
+          <div class="rating"><span class="stars">★★★★☆</span> 4.7</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="product-card" data-cat="dresses" style="animation-delay:0.25s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500&q=80" alt="Maxi Dress">
+        <span class="product-badge gold">New</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Dresses</div>
+        <div class="product-name">Pleated Maxi Dress</div>
+        <div class="product-desc">Flowing pleats in champagne chiffon</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#F0E0C0;"></div>
+          <div class="swatch" style="background:#D4A574;"></div>
+          <div class="swatch" style="background:#704020;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$215</span></div>
+          <div class="rating"><span class="stars">★★★★★</span> 4.8</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="product-card" data-cat="tops" style="animation-delay:0.3s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=500&q=80" alt="Knit Sweater">
+        <span class="product-badge">New</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Tops</div>
+        <div class="product-name">Chunky Knit Sweater</div>
+        <div class="product-desc">Oversized merino wool in walnut brown</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#A07850;"></div>
+          <div class="swatch" style="background:#E8D5B0;"></div>
+          <div class="swatch" style="background:#3B2210;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$145</span></div>
+          <div class="rating"><span class="stars">★★★★☆</span> 4.5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="product-card" data-cat="outerwear" style="animation-delay:0.35s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=500&q=80" alt="Leather Jacket">
+        <span class="product-badge gold">Limited</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Outerwear</div>
+        <div class="product-name">Cognac Leather Jacket</div>
+        <div class="product-desc">Full-grain leather, relaxed biker fit</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#A0522D;"></div>
+          <div class="swatch" style="background:#2A1A0A;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$420</span></div>
+          <div class="rating"><span class="stars">★★★★★</span> 5.0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="product-card" data-cat="bottoms" style="animation-delay:0.4s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500&q=80" alt="Midi Skirt">
+        <span class="product-badge">New</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Bottoms</div>
+        <div class="product-name">Satin Midi Skirt</div>
+        <div class="product-desc">Bias-cut satin with delicate slit</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#C9972A;"></div>
+          <div class="swatch" style="background:#F5ECD7;"></div>
+          <div class="swatch" style="background:#704020;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$128</span></div>
+          <div class="rating"><span class="stars">★★★★☆</span> 4.6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="product-card" data-cat="dresses" style="animation-delay:0.45s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500&q=80" alt="Shirt Dress">
+        <span class="product-badge sale">-20%</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Dresses</div>
+        <div class="product-name">Oversized Shirt Dress</div>
+        <div class="product-desc">Crisp cotton poplin, belted silhouette</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#FFFFFF; border:1px solid #ddd;"></div>
+          <div class="swatch" style="background:#E8D5B0;"></div>
+          <div class="swatch" style="background:#8B6340;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$104</span><span class="price-original">$130</span></div>
+          <div class="rating"><span class="stars">★★★★☆</span> 4.4</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="product-card" data-cat="tops" style="animation-delay:0.5s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500&q=80" alt="Corset Top">
+        <span class="product-badge gold">New</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Tops</div>
+        <div class="product-name">Structured Corset Top</div>
+        <div class="product-desc">Boning detail in rich bronze brocade</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#B8860B;"></div>
+          <div class="swatch" style="background:#5C3D1E;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$162</span></div>
+          <div class="rating"><span class="stars">★★★★★</span> 4.9</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="product-card" data-cat="outerwear" style="animation-delay:0.55s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=500&q=80" alt="Trench Coat">
+        <span class="product-badge">Classic</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Outerwear</div>
+        <div class="product-name">Classic Trench Coat</div>
+        <div class="product-desc">Timeless gabardine in golden sand</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#D4AA70;"></div>
+          <div class="swatch" style="background:#8B6340;"></div>
+          <div class="swatch" style="background:#2A1A0A;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$295</span></div>
+          <div class="rating"><span class="stars">★★★★★</span> 4.8</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="product-card" data-cat="bottoms" style="animation-delay:0.6s">
+      <div class="product-image-wrap">
+        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=500&q=80" alt="Tailored Shorts">
+        <span class="product-badge gold">New</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <button class="quick-add">+ Quick Add</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">Bottoms</div>
+        <div class="product-name">Tailored Bermuda Shorts</div>
+        <div class="product-desc">High-waist linen in warm caramel</div>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#C9A97A;"></div>
+          <div class="swatch" style="background:#F5ECD7;"></div>
+          <div class="swatch" style="background:#5C3D1E;"></div>
+        </div>
+        <div class="product-footer">
+          <div><span class="price">$88</span></div>
+          <div class="rating"><span class="stars">★★★★☆</span> 4.5</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">MAISON<span>.</span>ÉLITE</div>
+      <p>Where refined taste meets contemporary design. Each piece is thoughtfully crafted to elevate your everyday style.</p>
+      <div class="social-links">
+        <div class="social-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <div class="social-link"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        <div class="social-link"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+        <div class="social-link"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li>New Arrivals</li>
+        <li>Dresses</li>
+        <li>Tops & Blouses</li>
+        <li>Outerwear</li>
+        <li>Bottoms</li>
+        <li>Sale</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li>Size Guide</li>
+        <li>Shipping & Returns</li>
+        <li>Track My Order</li>
+        <li>FAQs</li>
+        <li>Contact Us</li>
+        <li>Sustainability</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p style="font-size:13px;line-height:1.8;margin-bottom:0.5rem;">Be the first to know about new arrivals and exclusive offers.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your email address">
+        <button>Join</button>
+      </div>
+      <p style="font-size:11px;margin-top:0.8rem;opacity:0.5;">By subscribing you agree to our Privacy Policy.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Maison Élite. All rights reserved.</span>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterProducts(btn, cat) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = document.querySelectorAll('.product-card');
+  let visible = 0;
+  cards.forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = ''; visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('count').textContent = `Showing ${visible} item${visible !== 1 ? 's' : ''}`;
+}
+
+// ─── CURSOR ─────────────────────────────────────────────────────────
+  const cursor = document.getElementById('cursor');
+  document.body.classList.add('cursor-enabled');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+  });
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('button, a, select, .product-card')) cursor.classList.add('hover');
+    else cursor.classList.remove('hover');
+  });
+  
+// Intersection Observer for scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = '1'; });
+}, { threshold: 0.1 });
+document.querySelectorAll('.product-card').forEach(c => observer.observe(c));
+</script>
+</body>
+</html>
