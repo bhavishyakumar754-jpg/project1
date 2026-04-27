@@ -46,6 +46,43 @@
 
   // ─── NAV SCROLL ─────────────────────────────────────────────────────
   const nav = document.getElementById('nav');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMobilePanel = document.getElementById('nav-mobile-panel');
+
+  function closeMobileNav() {
+    if (!navToggle || !navMobilePanel) return;
+    nav.classList.remove('is-menu-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navMobilePanel.hidden = true;
+    document.body.classList.remove('nav-open');
+  }
+
+  if (navToggle && navMobilePanel) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      nav.classList.toggle('is-menu-open', !isOpen);
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      navMobilePanel.hidden = isOpen;
+      document.body.classList.toggle('nav-open', !isOpen);
+    });
+
+    navMobilePanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        closeMobileNav();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeMobileNav();
+      }
+    });
+  }
+
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 10);
   });
@@ -150,7 +187,9 @@
       const id = parseInt(cartBtn.dataset.id);
       const prod = PRODUCTS.find(p => p.id === id);
       cart++;
-      document.querySelector('.nav-actions button:last-child').textContent = `Bag (${cart})`;
+      document.querySelectorAll('[data-bag-count]').forEach(button => {
+        button.textContent = `Bag (${cart})`;
+      });
       showToast(`${prod.name} added to bag`);
     }
 

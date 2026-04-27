@@ -13,6 +13,12 @@
 
 <body>
   <nav id="navbar"> <a href="#" class="nav-logo">KIW<span>A</span>D</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
+      aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="collections/">Collections</a></li>
       <li><a href="collections/newpage/">New Arrivals</a></li>
@@ -35,6 +41,19 @@
             <line x1="3" y1="6" x2="21" y2="6" />
             <path d="M16 10a4 4 0 0 1-8 0" />
           </svg> </button> <span>3</span> </div>
+    </div>
+    <div class="nav-mobile-panel" id="nav-mobile-panel" hidden>
+      <ul class="nav-mobile-links">
+        <li><a href="collections/">Collections</a></li>
+        <li><a href="collections/newpage/">New Arrivals</a></li>
+        <li><a href="collections/newpage/about/sale/">Sale</a></li>
+        <li><a href="collections/newpage/about/">About</a></li>
+      </ul>
+      <div class="nav-mobile-actions">
+        <button type="button">Search</button>
+        <button type="button">Account</button>
+        <button type="button" data-cart-label>Cart (3)</button>
+      </div>
     </div>
   </nav> <!-- ─── HERO ─── -->
   <section class="hero" id="hero">

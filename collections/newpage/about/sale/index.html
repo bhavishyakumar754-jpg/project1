@@ -88,6 +88,30 @@ body.cursor-enabled {
     text-decoration: none;
     color: var(--ink);
   }
+  .nav-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: rgba(253,252,250,0.82);
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+  }
+  .nav-toggle span {
+    position: absolute;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle span:nth-child(1) { transform: translateY(-6px); }
+  .nav-toggle span:nth-child(3) { transform: translateY(6px); }
+  nav.is-menu-open .nav-toggle span:nth-child(1) { transform: rotate(45deg); }
+  nav.is-menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  nav.is-menu-open .nav-toggle span:nth-child(3) { transform: rotate(-45deg); }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
     font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -110,6 +134,51 @@ body.cursor-enabled {
     border-radius: 2px !important;
   }
   .cart-btn:hover { background: #3a3530 !important; }
+  .nav-mobile-panel[hidden] { display: none; }
+  .nav-mobile-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 24px;
+    right: 24px;
+    padding: 24px;
+    background: rgba(253,252,250,0.98);
+    border: 1px solid var(--border);
+    box-shadow: 0 24px 56px rgba(26,23,20,0.12);
+  }
+  .nav-mobile-links {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+  }
+  .nav-mobile-links a {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-muted);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-mobile-links a:hover { color: var(--ink); }
+  .nav-mobile-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .nav-mobile-actions button {
+    border: 1px solid var(--border);
+    background: var(--cream);
+    color: var(--ink);
+    padding: 14px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  body.nav-open { overflow: hidden; }
 
   /* ── HERO ── */
   .hero {
@@ -496,7 +565,9 @@ body.cursor-enabled {
     .hero-right { min-height: 60vw; }
     .hero-left { padding: 60px 36px; }
     nav { padding: 0 24px; }
-    .nav-links { display: none; }
+    .nav-links, .nav-actions { display: none; }
+    .nav-toggle { display: inline-flex; }
+    .nav-mobile-panel { display: block; }
     .stats { grid-template-columns: repeat(2,1fr); }
     .stat { border-bottom: 1px solid var(--border); }
     .products-grid { grid-template-columns: repeat(2,1fr); }
@@ -512,6 +583,7 @@ body.cursor-enabled {
     .newsletter-form input { border-right: 1px solid var(--border); border-bottom: none; }
     footer { padding: 48px 24px 32px; }
     .footer-top { grid-template-columns: 1fr; }
+    .nav-mobile-actions { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -523,6 +595,12 @@ body.cursor-enabled {
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Kiwad</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
+    aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="../../../">collections</a></li>
     <li><a href="../../">new arrivals</a></li>
@@ -533,6 +611,18 @@ body.cursor-enabled {
     <button>Search</button>
     <button>Account</button>
     <button class="cart-btn">Bag (0)</button>
+  </div>
+  <div class="nav-mobile-panel" id="nav-mobile-panel" hidden>
+    <ul class="nav-mobile-links">
+      <li><a href="../../../">collections</a></li>
+      <li><a href="../../">new arrivals</a></li>
+      <li><a href="../../../../">home</a></li>
+    </ul>
+    <div class="nav-mobile-actions">
+      <button type="button">Search</button>
+      <button type="button">Account</button>
+      <button type="button" class="cart-btn">Bag (0)</button>
+    </div>
   </div>
 </nav>
 
@@ -906,6 +996,44 @@ function tick() {
 const timer = setInterval(tick, 1000);
 tick();
 
+const nav = document.querySelector('nav');
+const navToggle = document.querySelector('.nav-toggle');
+const navMobilePanel = document.getElementById('nav-mobile-panel');
+
+function closeMobileNav() {
+  if (!navToggle || !navMobilePanel) return;
+  nav.classList.remove('is-menu-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navMobilePanel.hidden = true;
+  document.body.classList.remove('nav-open');
+}
+
+if (navToggle && navMobilePanel) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    nav.classList.toggle('is-menu-open', !isOpen);
+    navToggle.setAttribute('aria-expanded', String(!isOpen));
+    navMobilePanel.hidden = isOpen;
+    document.body.classList.toggle('nav-open', !isOpen);
+  });
+
+  navMobilePanel.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+      closeMobileNav();
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      closeMobileNav();
+    }
+  });
+}
+
 // ─── COPY PROMO CODE ───
 function copyCode() {
   navigator.clipboard.writeText('KIWAD15').catch(() => {});
@@ -933,11 +1061,11 @@ function addToBag(btn) {
     btn.style.background = '';
   }, 1500);
 
-  const cartBtn = document.querySelector('.cart-btn');
-  cartBtn.textContent = `Bag (${bagCount})`;
-
-  cartBtn.style.transform = 'scale(1.08)';
-  setTimeout(() => { cartBtn.style.transform = ''; }, 200);
+  document.querySelectorAll('.cart-btn').forEach(cartBtn => {
+    cartBtn.textContent = `Bag (${bagCount})`;
+    cartBtn.style.transform = 'scale(1.08)';
+    setTimeout(() => { cartBtn.style.transform = ''; }, 200);
+  });
 }
 
 // ─── SUBSCRIBE ───

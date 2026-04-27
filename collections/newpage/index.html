@@ -73,6 +73,29 @@
   }
   .nav-logo span { color: var(--gold); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-toggle {
+    display: none;
+    width: 48px; height: 48px;
+    border: 1px solid rgba(201,169,122,0.32);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.7);
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+  }
+  .nav-toggle span {
+    position: absolute;
+    width: 18px; height: 1.5px;
+    border-radius: 999px;
+    background: var(--brown-dark);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle span:nth-child(1) { transform: translateY(-6px); }
+  .nav-toggle span:nth-child(3) { transform: translateY(6px); }
+  nav.is-menu-open .nav-toggle span:nth-child(1) { transform: rotate(45deg); }
+  nav.is-menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  nav.is-menu-open .nav-toggle span:nth-child(3) { transform: rotate(-45deg); }
   .nav-links a {
     text-decoration: none; font-size: 13px; font-weight: 500;
     letter-spacing: 1.5px; text-transform: uppercase;
@@ -93,6 +116,54 @@
     width: 16px; height: 16px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
   }
+  .nav-mobile-panel[hidden] { display: none; }
+  .nav-mobile-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 5%;
+    right: 5%;
+    padding: 24px;
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(201,169,122,0.28);
+    box-shadow: 0 22px 54px rgba(42,26,10,0.14);
+  }
+  .nav-mobile-links {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+  }
+  .nav-mobile-links a {
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201,169,122,0.2);
+  }
+  .nav-mobile-links a:hover,
+  .nav-mobile-links a.active { color: var(--gold); }
+  .nav-mobile-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .nav-mobile-actions button {
+    border: 1px solid rgba(201,169,122,0.25);
+    background: var(--gold-pale);
+    color: var(--brown-dark);
+    padding: 14px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  body.nav-open { overflow: hidden; }
 
   /* ── HERO ── */
   .hero {
@@ -456,12 +527,16 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .footer-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
+    .nav-links, .nav-icons { display: none; }
+    .nav-toggle { display: inline-flex; }
+    .nav-mobile-panel { display: block; }
   }
   @media (max-width: 600px) {
     .footer-grid { grid-template-columns: 1fr; }
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .filter-section { top: 60px; }
+    .nav-mobile-panel { padding: 20px; }
+    .nav-mobile-actions { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -470,6 +545,12 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">MAISON<span>.</span>ÉLITE</div>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
+    aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <ul class="nav-links">
      <li><a href="../">Collections</a></li>
     <li><a href="#" class="active">New Arrivals</a></li>
@@ -481,6 +562,19 @@
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
     <div class="cart-badge">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    </div>
+  </div>
+  <div class="nav-mobile-panel" id="nav-mobile-panel" hidden>
+    <ul class="nav-mobile-links">
+      <li><a href="../">Collections</a></li>
+      <li><a href="#" class="active">New Arrivals</a></li>
+      <li><a href="about/sale/">Sale</a></li>
+      <li><a href="../../">Home</a></li>
+    </ul>
+    <div class="nav-mobile-actions">
+      <button type="button">Search</button>
+      <button type="button">Wishlist</button>
+      <button type="button">Bag (3)</button>
     </div>
   </div>
 </nav>
@@ -953,6 +1047,44 @@ function filterProducts(btn, cat) {
     if (e.target.closest('button, a, select, .product-card')) cursor.classList.add('hover');
     else cursor.classList.remove('hover');
   });
+
+const nav = document.querySelector('nav');
+const navToggle = document.querySelector('.nav-toggle');
+const navMobilePanel = document.getElementById('nav-mobile-panel');
+
+function closeMobileNav() {
+  if (!navToggle || !navMobilePanel) return;
+  nav.classList.remove('is-menu-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navMobilePanel.hidden = true;
+  document.body.classList.remove('nav-open');
+}
+
+if (navToggle && navMobilePanel) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    nav.classList.toggle('is-menu-open', !isOpen);
+    navToggle.setAttribute('aria-expanded', String(!isOpen));
+    navMobilePanel.hidden = isOpen;
+    document.body.classList.toggle('nav-open', !isOpen);
+  });
+
+  navMobilePanel.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      closeMobileNav();
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      closeMobileNav();
+    }
+  });
+}
   
 // Intersection Observer for scroll animation
 const observer = new IntersectionObserver((entries) => {

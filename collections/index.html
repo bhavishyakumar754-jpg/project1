@@ -17,6 +17,12 @@
   <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo">KIWAD</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
+      aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="#" class="active">Collection</a></li>
       <li><a href="newpage/">new arrivals</a></li>
@@ -25,7 +31,19 @@
     </ul>
     <div class="nav-actions">
       <button>Search</button>
-      <button>Bag (0)</button>
+      <button data-bag-count>Bag (0)</button>
+    </div>
+    <div class="nav-mobile-panel" id="nav-mobile-panel" hidden>
+      <ul class="nav-mobile-links">
+        <li><a href="#" class="active">Collection</a></li>
+        <li><a href="newpage/">new arrivals</a></li>
+        <li><a href="newpage/about/sale/">Sale</a></li>
+        <li><a href="../">Home</a></li>
+      </ul>
+      <div class="nav-mobile-actions">
+        <button type="button">Search</button>
+        <button type="button" data-bag-count>Bag (0)</button>
+      </div>
     </div>
   </nav>
 

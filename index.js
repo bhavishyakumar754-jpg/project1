@@ -42,6 +42,43 @@ startAuto();
 
 // --- STICKY NAV SHADOW ---
 const navbar = document.getElementById('navbar');
+const navToggle = document.querySelector('.nav-toggle');
+const navMobilePanel = document.getElementById('nav-mobile-panel');
+
+function closeMobileNav() {
+    if (!navToggle || !navMobilePanel) return;
+    navbar.classList.remove('is-menu-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navMobilePanel.hidden = true;
+    document.body.classList.remove('nav-open');
+}
+
+if (navToggle && navMobilePanel) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+        navbar.classList.toggle('is-menu-open', !isOpen);
+        navToggle.setAttribute('aria-expanded', String(!isOpen));
+        navMobilePanel.hidden = isOpen;
+        document.body.classList.toggle('nav-open', !isOpen);
+    });
+
+    navMobilePanel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileNav);
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMobileNav();
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closeMobileNav();
+        }
+    });
+}
+
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
 });
@@ -56,7 +93,11 @@ function setFilter(btn) {
 function addToCart(btn) {
     const badge = document.querySelector('.nav-cart-badge span');
     let count = parseInt(badge.textContent);
-    badge.textContent = count + 1;
+    count += 1;
+    badge.textContent = count;
+    document.querySelectorAll('[data-cart-label]').forEach(label => {
+        label.textContent = `Cart (${count})`;
+    });
     btn.textContent = '✓ Added';
     btn.style.background = '#2a7a4a';
     setTimeout(() => {
