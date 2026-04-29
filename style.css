@@ -51,16 +51,15 @@ nav.scrolled {
 }
 
 .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 6px;
-    color: var(--charcoal);
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
 }
 
-.nav-logo span {
-    color: var(--gold);
+.brand-logo-image {
+    display: block;
+    height: 54px;
+    width: auto;
 }
 
 .nav-links {
@@ -1118,9 +1117,12 @@ footer {
 }
 
 .footer-brand .nav-logo {
-    font-size: 24px;
     display: block;
     margin-bottom: 20px;
+}
+
+.footer-brand .brand-logo-image {
+    height: 92px;
 }
 
 .footer-brand p {

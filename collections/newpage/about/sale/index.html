@@ -80,13 +80,15 @@ body.cursor-enabled {
     height: 64px;
   }
   .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
     color: var(--ink);
+  }
+  .brand-logo-image {
+    display: block;
+    height: 50px;
+    width: auto;
   }
   .nav-toggle {
     display: none;
@@ -537,9 +539,12 @@ body.cursor-enabled {
   }
   .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
   .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 500; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--cream); margin-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  .footer-logo-image {
+    display: block;
+    height: 96px;
+    width: auto;
   }
   .footer-tagline { font-size: 13px; line-height: 1.7; max-width: 240px; }
   .footer-col h4 {
@@ -612,7 +617,7 @@ body.cursor-enabled {
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Kiwad</a>
+  <a href="#" class="nav-logo"><img src="../../../../assets/kiwad.jpg" alt="KIWAD" class="brand-logo-image" /></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
     aria-label="Toggle navigation">
     <span></span>
@@ -875,7 +880,7 @@ body.cursor-enabled {
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-logo">Kiwad</div>
+      <div class="footer-logo"><img src="../../../../assets/kiwad.jpg" alt="KIWAD" class="footer-logo-image" /></div>
       <p class="footer-tagline">Timeless clothing for the considered wardrobe. Designed to last, made to be worn.</p>
     </div>
     <div class="footer-col">
