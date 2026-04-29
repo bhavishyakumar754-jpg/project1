@@ -507,3 +507,8 @@
       .nav-mobile-panel { left: 18px; right: 18px; padding: 20px; }
       .nav-mobile-actions { grid-template-columns: 1fr; }
     }
+
+    @media (hover: none), (pointer: coarse) {
+      body { cursor: auto; }
+      .cursor { display: none; }
+    }

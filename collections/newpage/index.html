@@ -538,6 +538,10 @@
     .nav-mobile-panel { padding: 20px; }
     .nav-mobile-actions { grid-template-columns: 1fr; }
   }
+  @media (hover: none), (pointer: coarse) {
+    body { cursor: auto; }
+    .cursor { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -613,10 +617,11 @@
 <div class="filter-section">
   <div class="filter-tabs">
     <button class="filter-tab active" onclick="filterProducts(this,'all')">All (12)</button>
-    <button class="filter-tab" onclick="filterProducts(this,'tops')">Tops</button>
-    <button class="filter-tab" onclick="filterProducts(this,'dresses')">Dresses</button>
-    <button class="filter-tab" onclick="filterProducts(this,'outerwear')">Outerwear</button>
-    <button class="filter-tab" onclick="filterProducts(this,'bottoms')">Bottoms</button>
+    <button class="filter-tab" onclick="filterProducts(this,'sets')">Sets</button>
+    <button class="filter-tab" onclick="filterProducts(this,'festive')">Festive</button>
+    <button class="filter-tab" onclick="filterProducts(this,'dupatta')">Dupatta Sets</button>
+    <button class="filter-tab" onclick="filterProducts(this,'coords')">Co-ords</button>
+    <button class="filter-tab" onclick="filterProducts(this,'accessories')">Accessories</button>
   </div>
   <div style="display:flex;align-items:center;gap:1rem;">
     <span class="items-count" id="count">Showing 12 items</span>
@@ -641,9 +646,9 @@
   <div class="product-grid" id="productGrid">
 
     <!-- Card 1 -->
-    <div class="product-card" data-cat="dresses" style="animation-delay:0.05s">
+    <div class="product-card" data-cat="festive" style="animation-delay:0.05s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&q=80" alt="Silk Wrap Dress">
+        <img src="../../assets/look-ivory-embroidered-anarkali.png" alt="Ivory Embroidered Anarkali">
         <span class="product-badge gold">New</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -652,9 +657,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Dresses</div>
-        <div class="product-name">Silk Wrap Midi Dress</div>
-        <div class="product-desc">Fluid silk-blend in warm ivory tone</div>
+        <div class="product-category">Festive</div>
+        <div class="product-name">Ivory Embroidered Anarkali</div>
+        <div class="product-desc">Soft sheen, embroidered yoke, sweeping festive silhouette</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#F5ECD7;"></div>
           <div class="swatch" style="background:#C4956A;"></div>
@@ -668,9 +673,9 @@
     </div>
 
     <!-- Card 2 -->
-    <div class="product-card" data-cat="tops" style="animation-delay:0.1s">
+    <div class="product-card" data-cat="sets" style="animation-delay:0.1s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4b4a5b?w=500&q=80" alt="Linen Blouse">
+        <img src="../../assets/look-maroon-motif-kurta-set.png" alt="Maroon Motif Kurta Set">
         <span class="product-badge">Trending</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -679,9 +684,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Tops</div>
-        <div class="product-name">Relaxed Linen Blouse</div>
-        <div class="product-desc">Breathable linen with wide-cut sleeves</div>
+        <div class="product-category">Sets</div>
+        <div class="product-name">Maroon Motif Kurta Set</div>
+        <div class="product-desc">Statement contrast panel with a clean straight-cut finish</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#EDE0D0;"></div>
           <div class="swatch" style="background:#B08060;"></div>
@@ -695,9 +700,9 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="product-card" data-cat="outerwear" style="animation-delay:0.15s">
+    <div class="product-card" data-cat="festive" style="animation-delay:0.15s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=500&q=80" alt="Camel Coat">
+        <img src="../../assets/look-mustard-floral-dupatta-set.png" alt="Mustard Floral Dupatta Set">
         <span class="product-badge gold">Bestseller</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -706,9 +711,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Outerwear</div>
-        <div class="product-name">Tailored Camel Coat</div>
-        <div class="product-desc">Double-breasted heritage wool blend</div>
+        <div class="product-category">Festive</div>
+        <div class="product-name">Mustard Floral Dupatta Set</div>
+        <div class="product-desc">Light floral drape with a bright festive palette</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#C9A97A;"></div>
           <div class="swatch" style="background:#8B6340;"></div>
@@ -722,9 +727,9 @@
     </div>
 
     <!-- Card 4 -->
-    <div class="product-card" data-cat="bottoms" style="animation-delay:0.2s">
+    <div class="product-card" data-cat="coords" style="animation-delay:0.2s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80" alt="Wide Leg Trousers">
+        <img src="../../assets/look-rust-ikat-coord-set.png" alt="Rust Ikat Coord Set">
         <span class="product-badge sale">Sale</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -733,9 +738,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Bottoms</div>
-        <div class="product-name">Wide Leg Trousers</div>
-        <div class="product-desc">High-waist crepe in warm tobacco</div>
+        <div class="product-category">Co-ords</div>
+        <div class="product-name">Rust Ikat Coord Set</div>
+        <div class="product-desc">Modern ikat print with contemporary wide-leg tailoring</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#8B6340;"></div>
           <div class="swatch" style="background:#F5ECD7;"></div>
@@ -749,9 +754,9 @@
     </div>
 
     <!-- Card 5 -->
-    <div class="product-card" data-cat="dresses" style="animation-delay:0.25s">
+    <div class="product-card" data-cat="festive" style="animation-delay:0.25s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500&q=80" alt="Maxi Dress">
+        <img src="../../assets/look-crimson-flared-coord-set.png" alt="Crimson Flared Coord Set">
         <span class="product-badge gold">New</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -760,9 +765,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Dresses</div>
-        <div class="product-name">Pleated Maxi Dress</div>
-        <div class="product-desc">Flowing pleats in champagne chiffon</div>
+        <div class="product-category">Festive</div>
+        <div class="product-name">Crimson Flared Coord Set</div>
+        <div class="product-desc">Refined festive volume with a sharp, monochrome finish</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#F0E0C0;"></div>
           <div class="swatch" style="background:#D4A574;"></div>
@@ -776,9 +781,9 @@
     </div>
 
     <!-- Card 6 -->
-    <div class="product-card" data-cat="tops" style="animation-delay:0.3s">
+    <div class="product-card" data-cat="accessories" style="animation-delay:0.3s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=500&q=80" alt="Knit Sweater">
+        <img src="../../assets/portrait-teal-gold-jhumka.png" alt="Teal Jhumka Edit">
         <span class="product-badge">New</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -787,9 +792,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Tops</div>
-        <div class="product-name">Chunky Knit Sweater</div>
-        <div class="product-desc">Oversized merino wool in walnut brown</div>
+        <div class="product-category">Accessories</div>
+        <div class="product-name">Teal Jhumka Edit</div>
+        <div class="product-desc">An earrings-first styling moment with rich festive detailing</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#A07850;"></div>
           <div class="swatch" style="background:#E8D5B0;"></div>
@@ -803,9 +808,9 @@
     </div>
 
     <!-- Card 7 -->
-    <div class="product-card" data-cat="outerwear" style="animation-delay:0.35s">
+    <div class="product-card" data-cat="sets" style="animation-delay:0.35s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=500&q=80" alt="Leather Jacket">
+        <img src="../../assets/look-lime-blue-brocade-set.png" alt="Lime Brocade Straight Set">
         <span class="product-badge gold">Limited</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -814,9 +819,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Outerwear</div>
-        <div class="product-name">Cognac Leather Jacket</div>
-        <div class="product-desc">Full-grain leather, relaxed biker fit</div>
+        <div class="product-category">Sets</div>
+        <div class="product-name">Lime Brocade Straight Set</div>
+        <div class="product-desc">Fresh colour contrast with woven brocade trousers</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#A0522D;"></div>
           <div class="swatch" style="background:#2A1A0A;"></div>
@@ -829,9 +834,9 @@
     </div>
 
     <!-- Card 8 -->
-    <div class="product-card" data-cat="bottoms" style="animation-delay:0.4s">
+    <div class="product-card" data-cat="coords" style="animation-delay:0.4s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500&q=80" alt="Midi Skirt">
+        <img src="../../assets/look-navy-printed-tunic-set.png" alt="Navy Printed Tunic Set">
         <span class="product-badge">New</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -840,9 +845,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Bottoms</div>
-        <div class="product-name">Satin Midi Skirt</div>
-        <div class="product-desc">Bias-cut satin with delicate slit</div>
+        <div class="product-category">Co-ords</div>
+        <div class="product-name">Navy Printed Tunic Set</div>
+        <div class="product-desc">A contemporary tunic silhouette grounded by tailored navy pants</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#C9972A;"></div>
           <div class="swatch" style="background:#F5ECD7;"></div>
@@ -856,9 +861,9 @@
     </div>
 
     <!-- Card 9 -->
-    <div class="product-card" data-cat="dresses" style="animation-delay:0.45s">
+    <div class="product-card" data-cat="dupatta" style="animation-delay:0.45s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500&q=80" alt="Shirt Dress">
+        <img src="../../assets/look-sky-blue-pink-dupatta-set.png" alt="Sky Blue Mirror Dupatta Set">
         <span class="product-badge sale">-20%</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -867,9 +872,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Dresses</div>
-        <div class="product-name">Oversized Shirt Dress</div>
-        <div class="product-desc">Crisp cotton poplin, belted silhouette</div>
+        <div class="product-category">Dupatta Sets</div>
+        <div class="product-name">Sky Blue Mirror Dupatta Set</div>
+        <div class="product-desc">Mirrorwork-inspired border with a fluid festive drape</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#FFFFFF; border:1px solid #ddd;"></div>
           <div class="swatch" style="background:#E8D5B0;"></div>
@@ -883,9 +888,9 @@
     </div>
 
     <!-- Card 10 -->
-    <div class="product-card" data-cat="tops" style="animation-delay:0.5s">
+    <div class="product-card" data-cat="accessories" style="animation-delay:0.5s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?w=500&q=80" alt="Corset Top">
+        <img src="../../assets/detail-sky-blue-pink-dupatta.png" alt="Mirror Border Dupatta Detail">
         <span class="product-badge gold">New</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -894,9 +899,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Tops</div>
-        <div class="product-name">Structured Corset Top</div>
-        <div class="product-desc">Boning detail in rich bronze brocade</div>
+        <div class="product-category">Accessories</div>
+        <div class="product-name">Mirror Border Dupatta Detail</div>
+        <div class="product-desc">A close look at the mirrored trim and festive finishing</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#B8860B;"></div>
           <div class="swatch" style="background:#5C3D1E;"></div>
@@ -909,9 +914,9 @@
     </div>
 
     <!-- Card 11 -->
-    <div class="product-card" data-cat="outerwear" style="animation-delay:0.55s">
+    <div class="product-card" data-cat="dupatta" style="animation-delay:0.55s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=500&q=80" alt="Trench Coat">
+        <img src="../../assets/look-olive-lilac-leaf-dupatta-set.png" alt="Olive Leaf Dupatta Set">
         <span class="product-badge">Classic</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -920,9 +925,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Outerwear</div>
-        <div class="product-name">Classic Trench Coat</div>
-        <div class="product-desc">Timeless gabardine in golden sand</div>
+        <div class="product-category">Dupatta Sets</div>
+        <div class="product-name">Olive Leaf Dupatta Set</div>
+        <div class="product-desc">Leaf applique, gold edging, and an elevated soft palette</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#D4AA70;"></div>
           <div class="swatch" style="background:#8B6340;"></div>
@@ -936,9 +941,9 @@
     </div>
 
     <!-- Card 12 -->
-    <div class="product-card" data-cat="bottoms" style="animation-delay:0.6s">
+    <div class="product-card" data-cat="festive" style="animation-delay:0.6s">
       <div class="product-image-wrap">
-        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=500&q=80" alt="Tailored Shorts">
+        <img src="../../assets/look-crimson-brocade-skirt-set.png" alt="Crimson Skirt and Jacket Set">
         <span class="product-badge gold">New</span>
         <div class="product-actions">
           <button class="action-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
@@ -947,9 +952,9 @@
         <button class="quick-add">+ Quick Add</button>
       </div>
       <div class="product-info">
-        <div class="product-category">Bottoms</div>
-        <div class="product-name">Tailored Bermuda Shorts</div>
-        <div class="product-desc">High-waist linen in warm caramel</div>
+        <div class="product-category">Festive</div>
+        <div class="product-name">Crimson Skirt &amp; Jacket Set</div>
+        <div class="product-desc">A celebratory pairing with a statement cropped jacket</div>
         <div class="color-swatches">
           <div class="swatch" style="background:#C9A97A;"></div>
           <div class="swatch" style="background:#F5ECD7;"></div>

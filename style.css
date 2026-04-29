@@ -267,27 +267,31 @@ body.nav-open {
 
 /* Slide images using gradient artistry since no external images */
 .slide-1 {
-    background:
-        linear-gradient(135deg, rgba(26, 26, 26, 0.55) 0%, rgba(180, 149, 120, 0.3) 100%),
-        radial-gradient(ellipse at 30% 60%, #6b4c3b 0%, #1a1a1a 60%, #0d0d0d 100%);
+    background-image:
+        linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
+        url("assets/campaign-dual-occasionwear-portrait.png");
+    background-position: center 18%;
 }
 
 .slide-2 {
-    background:
-        linear-gradient(160deg, rgba(212, 169, 160, 0.4) 0%, rgba(26, 26, 26, 0.7) 100%),
-        radial-gradient(ellipse at 70% 40%, #8c6858 0%, #2a1f1a 50%, #0f0f0f 100%);
+    background-image:
+        linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
+        url("assets/portrait-sky-blue-pink-dupatta.png");
+    background-position: center 16%;
 }
 
 .slide-3 {
-    background:
-        linear-gradient(120deg, rgba(26, 26, 26, 0.6) 0%, rgba(140, 123, 110, 0.35) 100%),
-        radial-gradient(ellipse at 50% 30%, #5c4a38 0%, #1e1a16 55%, #0a0a0a 100%);
+    background-image:
+        linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
+        url("assets/portrait-mustard-floral-dupatta.png");
+    background-position: center 14%;
 }
 
 .slide-4 {
-    background:
-        linear-gradient(150deg, rgba(184, 150, 78, 0.25) 0%, rgba(26, 26, 26, 0.65) 100%),
-        radial-gradient(ellipse at 20% 70%, #7a5c3c 0%, #221a12 60%, #0c0c0c 100%);
+    background-image:
+        linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
+        url("assets/portrait-crimson-brocade-set.png");
+    background-position: center 12%;
 }
 
 /* Decorative texture overlay */
@@ -302,14 +306,7 @@ body.nav-open {
 
 /* Subtle model silhouette shapes */
 .slide::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 15%;
-    width: 38%;
-    height: 90%;
-    background: rgba(255, 255, 255, 0.03);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+    display: none;
 }
 
 .hero-content {
@@ -593,6 +590,9 @@ section {
 .cat-bg {
     position: absolute;
     inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: transform 0.6s ease;
 }
 
@@ -601,23 +601,28 @@ section {
 }
 
 .cat-bg-1 {
-    background: linear-gradient(160deg, #3d2b1f 0%, #1a1008 100%);
+    background-image: url("assets/campaign-dual-occasionwear-portrait.png");
+    background-position: center 12%;
 }
 
 .cat-bg-2 {
-    background: linear-gradient(135deg, #5c3d35 0%, #2a1a16 100%);
+    background-image: url("assets/look-lime-blue-brocade-set.png");
+    background-position: center 10%;
 }
 
 .cat-bg-3 {
-    background: linear-gradient(140deg, #4a3828 0%, #1e150e 100%);
+    background-image: url("assets/look-teal-sharara-dupatta-set.png");
+    background-position: center 12%;
 }
 
 .cat-bg-4 {
-    background: linear-gradient(145deg, #3a2d22 0%, #160f08 100%);
+    background-image: url("assets/portrait-teal-gold-jhumka.png");
+    background-position: center 18%;
 }
 
 .cat-bg-5 {
-    background: linear-gradient(150deg, #4d3d2c 0%, #1c1208 100%);
+    background-image: url("assets/look-rust-ikat-coord-set.png");
+    background-position: center 12%;
 }
 
 /* Decorative shape in cards */
@@ -732,6 +737,9 @@ section {
 .product-bg {
     position: absolute;
     inset:0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: transform 0.5s ease;
 }
 
@@ -740,48 +748,48 @@ section {
 }
 
 .pb-1 {
-    background: linear-gradient(160deg, #ffffff 0%, #e48462 100%);
+    background-image: url("assets/look-ivory-embroidered-anarkali.png");
+    background-position: center 12%;
 }
 
 .pb-2 {
-    background: linear-gradient(155deg, #a89080 0%, #4a3028 100%);
+    background-image: url("assets/look-lime-blue-brocade-set.png");
+    background-position: center 12%;
 }
 
 .pb-3 {
-    background: linear-gradient(145deg, #d4c4b4 0%, #8c6c58 100%);
+    background-image: url("assets/look-olive-lilac-leaf-dupatta-set.png");
+    background-position: center 12%;
 }
 
 .pb-4 {
-    background: linear-gradient(160deg, #b8a494 0%, #604840 100%);
+    background-image: url("assets/look-rust-ikat-coord-set.png");
+    background-position: center 12%;
 }
 
 .pb-5 {
-    background: linear-gradient(150deg, #e0cfc4 0%, #9c7c68 100%);
+    background-image: url("assets/look-crimson-flared-coord-set.png");
+    background-position: center 12%;
 }
 
 .pb-6 {
-    background: linear-gradient(140deg, #c0a898 0%, #705848 100%);
+    background-image: url("assets/look-teal-sharara-dupatta-set.png");
+    background-position: center 12%;
 }
 
 .pb-7 {
-    background: linear-gradient(155deg, #d8c4b8 0%, #846454 100%);
+    background-image: url("assets/look-cobalt-dupatta-coord-set.png");
+    background-position: center 12%;
 }
 
 .pb-8 {
-    background: linear-gradient(145deg, #a09080 0%, #503828 100%);
+    background-image: url("assets/look-crimson-brocade-skirt-set.png");
+    background-position: center 12%;
 }
 
 /* Clothing silhouette hints */
 .product-bg::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 55%;
-    height: 85%;
-    background: rgba(0, 0, 0, 0.12);
-    clip-path: polygon(30% 0%, 70% 0%, 85% 100%, 15% 100%);
+    display: none;
 }
 
 .product-tag {
@@ -912,7 +920,11 @@ section {
 }
 
 .editorial-visual {
-    background: linear-gradient(135deg, #3a2a1e 0%, #1a0e08 100%);
+    background:
+        linear-gradient(135deg, rgba(26, 14, 8, 0.35) 0%, rgba(26, 14, 8, 0.08) 100%),
+        url("assets/campaign-accessories-display.png");
+    background-size: cover;
+    background-position: center;
     position: relative;
     overflow: hidden;
 }
@@ -1284,5 +1296,15 @@ footer {
 
     .nav-mobile-actions {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    body {
+        cursor: auto;
+    }
+
+    .cursor {
+        display: none;
     }
 }
