@@ -1248,10 +1248,22 @@ footer {
     .cat-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+        gap: 14px;
+    }
+
+    .categories .section-title {
+        margin-bottom: 32px;
+    }
+
+    .cat-card {
+        aspect-ratio: 4 / 5;
+        min-height: 260px;
     }
 
     .cat-card:first-child {
         grid-row: auto;
+        aspect-ratio: 3 / 4;
+        min-height: 360px;
     }
 
     .testi-grid {
@@ -1281,6 +1293,28 @@ footer {
 }
 
 @media (max-width: 520px) {
+    .categories {
+        padding-top: 56px;
+        padding-bottom: 64px;
+    }
+
+    .categories .section-label {
+        letter-spacing: 3px;
+    }
+
+    .categories .section-title {
+        font-size: 40px;
+        margin-bottom: 28px;
+    }
+
+    .cat-card {
+        min-height: 240px;
+    }
+
+    .cat-card:first-child {
+        min-height: 340px;
+    }
+
     nav {
         padding: 0 18px;
     }
