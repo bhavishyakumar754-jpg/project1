@@ -31,7 +31,7 @@ function nextSlide() {
 }
 
 function startAuto() {
-    autoTimer = setInterval(nextSlide, 1500);
+    autoTimer = setInterval(nextSlide, 2500);
 }
 
 // Pause on hover, resume on leave

@@ -30,7 +30,7 @@ body {
 
 /* ─── NAVBAR ─── */
 nav {
-    position: fixed;
+    position: static;
     top: 0;
     left: 0;
     right: 0;
@@ -40,10 +40,10 @@ nav {
     justify-content: space-between;
     padding: 0 48px;
     height: 72px;
-    background: rgba(245, 240, 232, 0.92);
+    background:rgba(245, 240, 232, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(140, 123, 110, 0.15);
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.7s;
 }
 
 nav.scrolled {
@@ -257,7 +257,7 @@ body.nav-open {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 1.4s ease-in-out;
 }
 
 .slide.active {
@@ -269,28 +269,28 @@ body.nav-open {
     background-image:
         linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
         url("assets/campaign-dual-occasionwear-portrait.png");
-    background-position: center 18%;
+    background-position: center 1%;
 }
 
 .slide-2 {
     background-image:
         linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
-        url("assets/portrait-sky-blue-pink-dupatta.png");
-    background-position: center 16%;
+        url("assets/look-cocoa-kurta-salwar-set.png");
+    background-position: center 1%;
 }
 
 .slide-3 {
     background-image:
         linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
-        url("assets/portrait-mustard-floral-dupatta.png");
-    background-position: center 14%;
+        url("assets/portrait-teal-gold-jhumka.png");
+    background-position: center 1%;
 }
 
 .slide-4 {
     background-image:
         linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
         url("assets/portrait-crimson-brocade-set.png");
-    background-position: center 12%;
+    background-position: center 1%;
 }
 
 /* Decorative texture overlay */
@@ -436,14 +436,7 @@ body.nav-open {
 
 /* Slide counter */
 .slide-counter {
-    position: absolute;
-    bottom: 36px;
-    right: 80px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
-    letter-spacing: 2px;
-    z-index: 3;
+    position: none;
 }
 
 .slide-counter span {
@@ -483,7 +476,7 @@ body.nav-open {
     width: 1px;
     height: 40px;
     background: linear-gradient(to bottom, white, transparent);
-    animation: scrollPulse 1.8s ease-in-out infinite;
+    animation: scrollPulse 0.3s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
