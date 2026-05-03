@@ -71,7 +71,7 @@ body.cursor-enabled {
 
   /* ── NAV ── */
   nav {
-    position: sticky; top: 0; z-index: 100;
+    position: sticky; top: 0; z-index: 10000;
     background: rgba(253,252,250,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -143,6 +143,7 @@ body.cursor-enabled {
     top: calc(100% + 1px);
     left: 24px;
     right: 24px;
+    z-index: 1;
     padding: 24px;
     background: rgba(253,252,250,0.98);
     border: 1px solid var(--border);

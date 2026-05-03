@@ -30,11 +30,11 @@ body {
 
 /* ─── NAVBAR ─── */
 nav {
-    position: static;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -193,6 +193,7 @@ nav.is-menu-open .nav-toggle span:nth-child(3) {
     top: calc(100% + 1px);
     left: 24px;
     right: 24px;
+    z-index: 1;
     padding: 24px;
     background: rgba(250, 248, 244, 0.98);
     border: 1px solid rgba(140, 123, 110, 0.18);
