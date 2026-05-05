@@ -30,7 +30,7 @@ body {
 
 /* ─── NAVBAR ─── */
 nav {
-    position: sticky;
+    position: static;
     top: 0;
     left: 0;
     right: 0;
@@ -1050,6 +1050,7 @@ section {
     gap: 0;
 }
 
+
 .newsletter-form input {
     flex: 1;
     padding: 16px 24px;
@@ -1208,28 +1209,28 @@ footer {
         background-image:
             linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
             url("assets/home/desktop/hero-dual-occasionwear.png");
-        background-position: center, center;
+        background-position: center,center 1%;
     }
 
     .slide-2 {
         background-image:
             linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
             url("assets/home/desktop/hero-cocoa-kurta-set.jpeg");
-        background-position: center, center;
+        background-position: center, center 2%;
     }
 
     .slide-3 {
         background-image:
             linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
             url("assets/home/desktop/hero-teal-jhumka.png");
-        background-position: center, center;
+        background-position: center, center 2%;
     }
 
     .slide-4 {
         background-image:
             linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
             url("assets/home/desktop/hero-crimson-brocade-set.png");
-        background-position: center, center;
+        background-position: center, center 2%;
     }
 }
 

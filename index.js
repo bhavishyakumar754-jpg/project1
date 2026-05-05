@@ -29,8 +29,9 @@ function nextSlide() {
 }
 
 function startAuto() {
-    autoTimer = setInterval(nextSlide, 3500);
+    autoTimer = setInterval(nextSlide, 2500);
 }
+
 
 // Pause on hover, resume on leave
 document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(autoTimer));
