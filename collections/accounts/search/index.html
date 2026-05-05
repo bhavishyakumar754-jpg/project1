@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      color: #111;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      padding: 10px 14px;
+      max-width: 500px;
+      gap: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .search-bar:focus-within {
+      border-color: #111;
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      color: #111;
+      background: transparent;
+    }
+
+    .search-bar input::placeholder {
+      color: #aaa;
+    }
+
+    .search-bar button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    .search-bar button:hover { color: #111; }
+
+    /* Results */
+    #results {
+      margin-top: 20px;
+      max-width: 500px;
+    }
+
+    .result-item {
+      padding: 12px 14px;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .result-item:hover { background: #f9f9f9; }
+
+    .result-item mark {
+      background: #fff3b0;
+      border-radius: 2px;
+    }
+
+    .no-results {
+      color: #aaa;
+      font-size: 14px;
+      padding: 12px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Search Items</h2>
+
+  <div class="search-bar">
+    <!-- Search icon -->
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+
+    <input type="text" id="searchInput" placeholder="Search…" oninput="search()"/>
+
+    <!-- Clear button -->
+    <button onclick="clearSearch()" title="Clear">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="results"></div>
+
+  <script>
+    // ── Add your items here ──
+    const items = [
+      'White T-Shirt',
+      'Blue Jeans',
+      'Black Hoodie',
+      'Leather Jacket',
+      'Summer Dress',
+      'Wool Coat',
+      'Sneakers',
+      'Running Shorts',
+      'Denim Jacket',
+      'Silk Blouse',
+    ];
+
+    function search() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const box   = document.getElementById('results');
+
+      if (!query) { box.innerHTML = ''; return; }
+
+      const matches = items.filter(i => i.toLowerCase().includes(query));
+
+      if (matches.length === 0) {
+        box.innerHTML = '<p class="no-results">No items found.</p>';
+        return;
+      }
+
+      box.innerHTML = matches.map(item => {
+        const highlighted = item.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>');
+        return `<div class="result-item">${highlighted}</div>`;
+      }).join('');
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('results').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
