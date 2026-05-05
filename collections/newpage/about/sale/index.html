@@ -71,7 +71,7 @@ body.cursor-enabled {
 
   /* ── NAV ── */
   nav {
-    position: sticky; top: 0; z-index: 10000;
+    position: sticky; top: 0; z-index: 1000;
     background: rgba(253,252,250,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -79,6 +79,7 @@ body.cursor-enabled {
     padding: 0 48px;
     height: 64px;
   }
+  nav.is-menu-open { z-index: 9500; }
   .nav-logo {
     display: inline-flex;
     align-items: center;

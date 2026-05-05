@@ -2,7 +2,6 @@
 // --- HERO SLIDER ---
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
-const slideNumEl = document.getElementById('slide-num');
 let current = 0;
 let autoTimer;
 
@@ -23,7 +22,6 @@ function goToSlide(n) {
     current = n;
     slides[current].classList.add('active');
     dots[current].classList.add('active');
-    slideNumEl.textContent = String(current + 1).padStart(2, '0');
 }
 
 function nextSlide() {
@@ -31,7 +29,7 @@ function nextSlide() {
 }
 
 function startAuto() {
-    autoTimer = setInterval(nextSlide, 2500);
+    autoTimer = setInterval(nextSlide, 3500);
 }
 
 // Pause on hover, resume on leave

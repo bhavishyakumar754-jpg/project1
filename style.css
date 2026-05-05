@@ -34,7 +34,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10000;
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -48,6 +48,10 @@ nav {
 
 nav.scrolled {
     box-shadow: 0 4px 32px rgba(26, 26, 26, 0.08);
+}
+
+nav.is-menu-open {
+    z-index: 9500;
 }
 
 .nav-logo {
@@ -265,33 +269,33 @@ body.nav-open {
     opacity: 1;
 }
 
-/* Slide images using gradient artistry since no external images */
+/* Home hero images: portrait assets for mobile, landscape assets for desktop */
 .slide-1 {
     background-image:
         linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
         url("assets/campaign-dual-occasionwear-portrait.png");
-    background-position: center 1%;
+    background-position: center, center 1%;
 }
 
 .slide-2 {
     background-image:
         linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
         url("assets/look-cocoa-kurta-salwar-set.png");
-    background-position: center 1%;
+    background-position: center, center 1%;
 }
 
 .slide-3 {
     background-image:
         linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
         url("assets/portrait-teal-gold-jhumka.png");
-    background-position: center 1%;
+    background-position: center, center 1%;
 }
 
 .slide-4 {
     background-image:
         linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
         url("assets/portrait-crimson-brocade-set.png");
-    background-position: center 1%;
+    background-position: center, center 1%;
 }
 
 /* Decorative texture overlay */
@@ -433,16 +437,6 @@ body.nav-open {
 .dot.active {
     background: var(--gold);
     width: 48px;
-}
-
-/* Slide counter */
-.slide-counter {
-    position: none;
-}
-
-.slide-counter span {
-    color: white;
-    font-size: 17px;
 }
 
 @keyframes slideUp {
@@ -1209,6 +1203,36 @@ footer {
     }
 }
 
+@media (min-width: 769px) {
+    .slide-1 {
+        background-image:
+            linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
+            url("assets/home/desktop/hero-dual-occasionwear.png");
+        background-position: center, center;
+    }
+
+    .slide-2 {
+        background-image:
+            linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
+            url("assets/home/desktop/hero-cocoa-kurta-set.jpeg");
+        background-position: center, center;
+    }
+
+    .slide-3 {
+        background-image:
+            linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
+            url("assets/home/desktop/hero-teal-jhumka.png");
+        background-position: center, center;
+    }
+
+    .slide-4 {
+        background-image:
+            linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
+            url("assets/home/desktop/hero-crimson-brocade-set.png");
+        background-position: center, center;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links,
     .nav-icons {
@@ -1276,9 +1300,73 @@ footer {
         padding: 48px 32px;
     }
 
+    footer {
+        padding: 64px 24px 34px;
+    }
+
     .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 34px 28px;
+        margin-bottom: 42px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+        max-width: 310px;
+    }
+
+    .footer-col:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer-col:last-child ul {
+        columns: 2;
+        column-gap: 28px;
+    }
+
+    .footer-brand .nav-logo {
+        margin-bottom: 14px;
+    }
+
+    .footer-brand .brand-logo-image {
+        height: 68px;
+    }
+
+    .footer-brand p {
+        max-width: none;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .footer-col h4 {
+        margin-bottom: 16px;
+    }
+
+    .footer-col li {
+        margin-bottom: 14px;
+    }
+
+    .footer-col a {
+        display: inline-block;
+        padding: 2px 0;
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 22px;
+        padding-top: 26px;
+    }
+
+    .footer-bottom p {
+        max-width: 220px;
+        line-height: 1.6;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        gap: 14px 22px;
     }
 
     .newsletter-form {
@@ -1326,6 +1414,33 @@ footer {
 
     .nav-mobile-actions {
         grid-template-columns: 1fr;
+    }
+
+    footer {
+        padding: 56px 24px 32px;
+    }
+
+    .footer-grid {
+        gap: 30px 22px;
+    }
+
+    .footer-brand .brand-logo-image {
+        height: 58px;
+    }
+
+    .social-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 360px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-col:last-child ul {
+        columns: 1;
     }
 }
 
