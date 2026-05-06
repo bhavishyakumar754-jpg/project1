@@ -104,8 +104,9 @@
   }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
   .nav-icons { display: flex; gap: 1.2rem; align-items: center; }
-  .nav-icons svg { width: 20px; height: 20px; stroke: var(--brown); cursor: pointer; transition: stroke 0.3s; }
-  .nav-icons svg:hover { stroke: var(--gold); }
+  .nav-icons a { color: var(--brown); display: inline-flex; text-decoration: none; }
+  .nav-icons svg { width: 20px; height: 20px; stroke: currentColor; cursor: pointer; transition: stroke 0.3s, color 0.3s; }
+  .nav-icons a:hover { color: var(--gold); }
   .cart-badge {
     position: relative; display: inline-block;
   }
@@ -154,16 +155,21 @@
     gap: 12px;
     margin-top: 20px;
   }
+  .nav-mobile-actions a,
   .nav-mobile-actions button {
     border: 1px solid rgba(201,169,122,0.25);
     background: var(--gold-pale);
     color: var(--brown-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 12px;
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+    text-decoration: none;
   }
   body.nav-open { overflow: hidden; }
 
@@ -564,11 +570,11 @@
     <li><a href="../../">Home</a></li>
   </ul>
   <div class="nav-icons">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-    <div class="cart-badge">
+    <a href="../search/" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
+    <a href="../accounts/" aria-label="Account" title="Account"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+    <a href="../cart/" class="cart-badge" aria-label="Cart" title="Cart">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-    </div>
+    </a>
   </div>
   <div class="nav-mobile-panel" id="nav-mobile-panel" hidden>
     <ul class="nav-mobile-links">
@@ -578,9 +584,9 @@
       <li><a href="../../">Home</a></li>
     </ul>
     <div class="nav-mobile-actions">
-      <button type="button">Search</button>
-      <button type="button">Wishlist</button>
-      <button type="button">Bag (3)</button>
+      <a href="../search/">Search</a>
+      <a href="../accounts/">Account</a>
+      <a href="../cart/">Bag (3)</a>
     </div>
   </div>
 </nav>

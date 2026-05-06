@@ -3,29 +3,89 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login — Nexus</title>
+  <title>Account — KIWAD</title>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --cream: #faf8f4;
+      --card: #ffffff;
+      --ink: #1a1917;
+      --muted: #6f6962;
+      --soft: #f2ede6;
+      --line: #e4ddd3;
+      --gold: #b8964e;
+      --danger: #c0392b;
+      --success: #2d6a4f;
+    }
+
     body {
       font-family: 'Sora', sans-serif;
-      background: #f4f4f6;
+      background: var(--cream);
+      color: var(--ink);
       min-height: 100vh;
+    }
+
+    .account-nav {
+      height: 68px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(250,248,244,0.94);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .account-nav a {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .account-nav a:hover,
+    .account-nav a.active { color: var(--ink); }
+
+    .account-nav-logo {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .account-nav-logo img {
+      height: 50px;
+      width: auto;
+      display: block;
+    }
+
+    .account-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .account-shell {
+      min-height: calc(100vh - 68px);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
     }
 
     .card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
       padding: 2.5rem 2rem;
       width: 100%;
       max-width: 400px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      box-shadow: 0 18px 50px rgba(26,25,23,0.08);
     }
 
     .brand {
@@ -39,7 +99,7 @@
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      background: #4f46e5;
+      background: var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -50,21 +110,21 @@
     .brand-name {
       font-size: 17px;
       font-weight: 600;
-      color: #111827;
+      color: var(--ink);
       letter-spacing: -0.3px;
     }
 
     h2 {
       font-size: 22px;
       font-weight: 600;
-      color: #111827;
+      color: var(--ink);
       letter-spacing: -0.5px;
       margin-bottom: 6px;
     }
 
     .sub {
       font-size: 13px;
-      color: #6b7280;
+      color: var(--muted);
       margin-bottom: 1.75rem;
     }
 
@@ -76,8 +136,8 @@
       display: none;
     }
 
-    .msg.error  { background: #fef2f2; color: #dc2626; display: block; }
-    .msg.success { background: #f0fdf4; color: #16a34a; display: block; }
+    .msg.error  { background: #fef2f2; color: var(--danger); display: block; }
+    .msg.success { background: #f0fdf4; color: var(--success); display: block; }
 
     .field { margin-bottom: 1rem; }
 
@@ -85,7 +145,7 @@
       display: block;
       font-size: 12px;
       font-weight: 500;
-      color: #6b7280;
+      color: var(--muted);
       margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 0.6px;
@@ -96,23 +156,23 @@
     .input-wrap input {
       width: 100%;
       padding: 10px 40px 10px 14px;
-      border: 1px solid #d1d5db;
+      border: 1px solid var(--line);
       border-radius: 8px;
       font-size: 14px;
       font-family: 'Sora', sans-serif;
-      background: #f9fafb;
-      color: #111827;
+      background: var(--soft);
+      color: var(--ink);
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .input-wrap input:focus {
-      border-color: #4f46e5;
+      border-color: var(--gold);
       background: #fff;
-      box-shadow: 0 0 0 3px rgba(79,70,229,0.12);
+      box-shadow: 0 0 0 3px rgba(184,150,78,0.14);
     }
 
-    .input-wrap input::placeholder { color: #9ca3af; }
+    .input-wrap input::placeholder { color: #a7a19a; }
 
     .eye-btn {
       position: absolute;
@@ -122,13 +182,13 @@
       background: none;
       border: none;
       cursor: pointer;
-      color: #9ca3af;
+      color: #a7a19a;
       display: flex;
       align-items: center;
       padding: 2px;
     }
 
-    .eye-btn:hover { color: #6b7280; }
+    .eye-btn:hover { color: var(--muted); }
 
     .row {
       display: flex;
@@ -146,17 +206,17 @@
     }
 
     .checkbox-wrap input[type="checkbox"] {
-      accent-color: #4f46e5;
+      accent-color: var(--gold);
       width: 14px;
       height: 14px;
       cursor: pointer;
     }
 
-    .checkbox-wrap span { font-size: 13px; color: #6b7280; }
+    .checkbox-wrap span { font-size: 13px; color: var(--muted); }
 
     .forgot {
       font-size: 13px;
-      color: #4f46e5;
+      color: var(--ink);
       text-decoration: none;
       font-weight: 500;
     }
@@ -166,7 +226,7 @@
     .btn-login {
       width: 100%;
       padding: 11px;
-      background: #4f46e5;
+      background: var(--ink);
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -179,9 +239,9 @@
       margin-bottom: 1.25rem;
     }
 
-    .btn-login:hover { background: #4338ca; }
+    .btn-login:hover { background: #34302b; }
     .btn-login:active { transform: scale(0.98); }
-    .btn-login:disabled { background: #a5b4fc; cursor: not-allowed; }
+    .btn-login:disabled { background: #a7a19a; cursor: not-allowed; }
 
     .divider {
       display: flex;
@@ -195,21 +255,21 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: #e5e7eb;
+      background: var(--line);
     }
 
-    .divider span { font-size: 12px; color: #9ca3af; white-space: nowrap; }
+    .divider span { font-size: 12px; color: #a7a19a; white-space: nowrap; }
 
     .btn-google {
       width: 100%;
       padding: 10px;
       background: #fff;
-      border: 1px solid #d1d5db;
+      border: 1px solid var(--line);
       border-radius: 8px;
       font-size: 13px;
       font-weight: 500;
       font-family: 'Sora', sans-serif;
-      color: #374151;
+      color: var(--ink);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -219,16 +279,16 @@
       margin-bottom: 1.5rem;
     }
 
-    .btn-google:hover { background: #f9fafb; }
+    .btn-google:hover { background: var(--soft); }
 
     .signup-row {
       text-align: center;
       font-size: 13px;
-      color: #6b7280;
+      color: var(--muted);
     }
 
     .signup-row a {
-      color: #4f46e5;
+      color: var(--ink);
       font-weight: 500;
       text-decoration: none;
     }
@@ -238,6 +298,18 @@
 </head>
 <body>
 
+  <header class="account-nav">
+    <a href="../../" class="account-nav-logo" aria-label="KIWAD home">
+      <img src="../../assets/kiwadv3 (3).png" alt="KIWAD"/>
+    </a>
+    <div class="account-nav-links">
+      <a href="../search/">Search</a>
+      <a href="../cart/">Cart</a>
+      <a href="./" class="active">Account</a>
+    </div>
+  </header>
+
+  <main class="account-shell">
   <div class="card">
 
     <!-- Brand -->
@@ -248,11 +320,11 @@
           <circle cx="10" cy="10" r="2.5" fill="#fff"/>
         </svg>
       </div>
-      <span class="brand-name">Nexus</span>
+      <span class="brand-name">KIWAD</span>
     </div>
 
     <h2>Welcome back</h2>
-    <p class="sub">Sign in to continue to your account</p>
+    <p class="sub">Sign in to view orders, saved pieces, and checkout faster.</p>
 
     <!-- Message box -->
     <div class="msg" id="msg"></div>
@@ -308,10 +380,11 @@
 
     <!-- Sign up -->
     <div class="signup-row">
-      Don't have an account? <a href="#">Sign up free</a>
+      Don't have an account? <a href="#">Create one</a>
     </div>
 
   </div>
+  </main>
 
   <script>
     const emailEl   = document.getElementById('email');

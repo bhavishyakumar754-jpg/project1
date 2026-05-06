@@ -123,12 +123,15 @@ body.cursor-enabled {
   }
   .nav-links a:hover { color: var(--ink); }
   .nav-actions { display: flex; gap: 20px; align-items: center; }
+  .nav-actions a,
   .nav-actions button {
     background: none; border: none; cursor: pointer;
     font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--ink-muted); font-family: 'DM Sans', sans-serif; font-weight: 300;
+    text-decoration: none;
     transition: color 0.2s;
   }
+  .nav-actions a:hover,
   .nav-actions button:hover { color: var(--ink); }
   .cart-btn {
     background: var(--ink) !important;
@@ -172,15 +175,20 @@ body.cursor-enabled {
     gap: 12px;
     margin-top: 20px;
   }
+  .nav-mobile-actions a,
   .nav-mobile-actions button {
     border: 1px solid var(--border);
     background: var(--cream);
     color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 12px;
     font-family: 'DM Sans', sans-serif;
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    text-decoration: none;
   }
   body.nav-open { overflow: hidden; }
 
@@ -619,7 +627,7 @@ body.cursor-enabled {
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo"><img src="../../../../assets/kiwad.jpg" alt="KIWAD" class="brand-logo-image" /></a>
+  <a href="../../../../" class="nav-logo"><img src="../../../../assets/kiwadv3 (3).png" alt="KIWAD" class="brand-logo-image" /></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
     aria-label="Toggle navigation">
     <span></span>
@@ -633,9 +641,9 @@ body.cursor-enabled {
    
   </ul>
   <div class="nav-actions">
-    <button>Search</button>
-    <button>Account</button>
-    <button class="cart-btn">Bag (0)</button>
+    <a href="../../../search/">Search</a>
+    <a href="../../../accounts/">Account</a>
+    <a href="../../../cart/" class="cart-btn">Bag (0)</a>
   </div>
   <div class="nav-mobile-panel" id="nav-mobile-panel" hidden>
     <ul class="nav-mobile-links">
@@ -644,8 +652,9 @@ body.cursor-enabled {
       <li><a href="../../../../">home</a></li>
     </ul>
     <div class="nav-mobile-actions">
-     
-      <button type="button" class="cart-btn">Bag (0)</button>
+      <a href="../../../search/">Search</a>
+      <a href="../../../accounts/">Account</a>
+      <a href="../../../cart/" class="cart-btn">Bag (0)</a>
     </div>
   </div>
 </nav>

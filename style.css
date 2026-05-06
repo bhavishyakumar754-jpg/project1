@@ -151,16 +151,21 @@ nav.is-menu-open .nav-toggle span:nth-child(3) {
     align-items: center;
 }
 
+.nav-icons a,
 .nav-icons button {
     background: none;
     border: none;
-    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: var(--charcoal);
     font-size: 18px;
+    text-decoration: none;
     transition: color 0.2s;
     padding: 4px;
 }
 
+.nav-icons a:hover,
 .nav-icons button:hover {
     color: var(--gold);
     cursor: none;
@@ -233,16 +238,21 @@ nav.is-menu-open .nav-toggle span:nth-child(3) {
     margin-top: 20px;
 }
 
+.nav-mobile-actions a,
 .nav-mobile-actions button {
     border: 1px solid rgba(140, 123, 110, 0.18);
     background: var(--off-white);
     color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 10px;
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 body.nav-open {

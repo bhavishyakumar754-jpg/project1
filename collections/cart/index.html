@@ -83,6 +83,7 @@
       background: none; border: none; cursor: pointer;
       color: var(--text-mid); display: flex; align-items: center;
       padding: 4px; transition: color 0.2s; position: relative;
+      text-decoration: none;
     }
 
     .nav-icon-btn:hover { color: var(--text); }
@@ -189,6 +190,7 @@
 
     /* Clothing placeholder SVG fill */
     .item-img svg { width: 48px; height: 48px; color: var(--border-dark); }
+    .item-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .item-info { display: flex; flex-direction: column; gap: 5px; }
 
@@ -454,6 +456,7 @@
 
     .continue-btn {
       width: 100%;
+      display: block;
       background: var(--white);
       color: var(--text);
       border: 1px solid var(--border-dark);
@@ -466,6 +469,8 @@
       cursor: pointer;
       transition: border-color 0.2s, background 0.2s;
       margin-bottom: 1.5rem;
+      text-align: center;
+      text-decoration: none;
     }
 
     .continue-btn:hover { border-color: var(--text); background: var(--off-white); }
@@ -522,6 +527,7 @@
     }
 
     .shop-btn {
+      display: inline-block;
       background: var(--text);
       color: var(--white);
       border: none;
@@ -533,6 +539,7 @@
       cursor: pointer;
       margin-top: 0.5rem;
       transition: background 0.2s;
+      text-decoration: none;
     }
 
     .shop-btn:hover { background: #333; }
@@ -551,7 +558,28 @@
 </head>
 <body>
 
-
+  <header>
+    <div class="nav-inner">
+      <nav class="nav-left" aria-label="Primary">
+        <a href="../">Shop</a>
+        <a href="../newpage/">New Arrivals</a>
+        <a href="../newpage/about/sale/">Sale</a>
+      </nav>
+      <a href="../../" class="brand">KIWAD</a>
+      <div class="nav-right">
+        <a href="../search/">Search</a>
+        <a href="../accounts/">Account</a>
+        <a href="#" class="nav-icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
   <!-- PAGE -->
   <div class="page">
@@ -611,7 +639,7 @@
         </div>
 
         <button class="checkout-btn">Proceed to Checkout</button>
-        <button class="continue-btn">Continue Shopping</button>
+        <a href="../" class="continue-btn">Continue Shopping</a>
 
         <div class="trust-row">
           <div class="trust-item">
@@ -634,7 +662,7 @@
         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         <p class="empty-title">Your cart is empty</p>
         <p class="empty-sub">Looks like you haven't added anything yet. Explore our latest collection.</p>
-        <button class="shop-btn">Shop Now</button>
+        <a href="../" class="shop-btn">Shop Now</a>
       </div>
 
     </div>
@@ -643,9 +671,9 @@
   <script>
     // ── INITIAL DATA ──
     let cart = [
-      { id: 1, brand: 'Maison Studio', name: 'Oversized Linen Blazer', color: '#c8b8a2', colorName: 'Sand', size: 'M', qty: 1, price: 285, originalPrice: null, img: null },
-      { id: 2, brand: 'Maison Studio', name: 'Slim Tailored Trousers', color: '#4a4845', colorName: 'Charcoal', size: '32', qty: 2, price: 145, originalPrice: 195, img: null },
-      { id: 3, brand: 'Maison Essentials', name: 'Ribbed Cashmere Knit', color: '#e8e0d8', colorName: 'Ivory', size: 'S', qty: 1, price: 320, originalPrice: null, img: null },
+      { id: 1, brand: 'KIWAD', name: 'Ivory Embroidered Anarkali', color: '#e7d3bb', colorName: 'Ivory', size: 'M', qty: 1, price: 8490, originalPrice: null, img: '../../assets/look-ivory-embroidered-anarkali.png' },
+      { id: 2, brand: 'KIWAD', name: 'Lime Brocade Straight Set', color: '#a4c331', colorName: 'Lime', size: 'S', qty: 1, price: 5950, originalPrice: 8500, img: '../../assets/look-lime-blue-brocade-set.png' },
+      { id: 3, brand: 'KIWAD', name: 'Olive Leaf Dupatta Set', color: '#7d8f33', colorName: 'Olive', size: 'Free', qty: 1, price: 4290, originalPrice: null, img: '../../assets/look-olive-lilac-leaf-dupatta-set.png' },
     ];
 
     let discount = 0;
@@ -660,7 +688,7 @@
       `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M16 6h16l4 8H12L16 6z"/><path d="M12 14v28h24V14"/><line x1="24" y1="14" x2="24" y2="42"/></svg>`,
     ];
 
-    function fmt(n) { return '$' + n.toFixed(2); }
+    function fmt(n) { return '₹' + n.toLocaleString('en-IN'); }
 
     function calcSubtotal() {
       return cart.reduce((s, i) => s + i.price * i.qty, 0);
@@ -712,7 +740,7 @@
       container.innerHTML = cart.map((item, idx) => `
         <div class="cart-item" id="item-${item.id}" style="animation-delay:${idx * 0.06}s">
           <div class="item-img">
-            ${ICONS[idx % ICONS.length]}
+            ${item.img ? `<img src="${item.img}" alt="${item.name}">` : ICONS[idx % ICONS.length]}
           </div>
           <div class="item-info">
             <p class="item-brand">${item.brand}</p>
@@ -778,7 +806,7 @@
       if (PROMO_CODES[code]) {
         discount = PROMO_CODES[code];
         promoApplied = true;
-        msgEl.textContent = `Code "${code}" applied — $${discount} off your order!`;
+        msgEl.textContent = `Code "${code}" applied — ${fmt(discount)} off your order!`;
         msgEl.className = 'promo-msg success';
         document.getElementById('promoInput').disabled = true;
         document.getElementById('promoBtn').textContent = 'Applied';

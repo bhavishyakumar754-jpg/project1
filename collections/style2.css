@@ -121,6 +121,7 @@
     .nav-actions {
       display: flex; gap: 24px; align-items: center;
     }
+    .nav-actions a,
     .nav-actions button {
       background: none; border: none;
       cursor: none;
@@ -129,6 +130,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ink);
+      text-decoration: none;
     }
 
     .nav-mobile-panel[hidden] { display: none; }
@@ -170,20 +172,25 @@
 
     .nav-mobile-actions {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 20px;
     }
 
+    .nav-mobile-actions a,
     .nav-mobile-actions button {
       border: 1px solid var(--line);
       background: var(--off);
       color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 14px 12px;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.68rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+      text-decoration: none;
       cursor: none;
     }
 
