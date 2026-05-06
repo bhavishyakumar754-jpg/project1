@@ -139,6 +139,14 @@ body.cursor-enabled {
     border: 1px solid var(--border);
     border-radius: 999px;
     background: rgba(253,252,250,0.72);
+    transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, transform 0.22s ease;
+  }
+  .nav-search:hover,
+  .nav-search:focus-within {
+    border-color: rgba(200,169,110,0.72);
+    background: rgba(253,252,250,0.94);
+    box-shadow: 0 0 0 2px rgba(200,169,110,0.16), 0 8px 22px rgba(26,23,20,0.07);
+    transform: translateY(-1px);
   }
   .nav-search input {
     width: 100%; min-width: 0;
@@ -737,7 +745,7 @@ body.cursor-enabled {
   </div>
   <div class="stat reveal">
     <div class="stat-num">Free</div>
-    <div class="stat-desc">Shipping on orders over $120</div>
+    <div class="stat-desc">Shipping on orders over ₹3,000</div>
   </div>
 </div>
 
@@ -798,9 +806,9 @@ body.cursor-enabled {
       <div class="product-category">Women · Sets</div>
       <div class="product-name">Lime Brocade Straight Set</div>
       <div class="product-pricing">
-        <span class="price-now">$78</span>
-        <span class="price-was">$130</span>
-        <span class="price-save">Save $52</span>
+        <span class="price-now">₹2,199</span>
+        <span class="price-was">₹3,499</span>
+        <span class="price-save">Save ₹1,300</span>
       </div>
     </div>
 
@@ -816,9 +824,9 @@ body.cursor-enabled {
       <div class="product-category">Co-ords</div>
       <div class="product-name">Rust Ikat Coord Set</div>
       <div class="product-pricing">
-        <span class="price-now">$195</span>
-        <span class="price-was">$320</span>
-        <span class="price-save">Save $125</span>
+        <span class="price-now">₹2,799</span>
+        <span class="price-was">₹3,899</span>
+        <span class="price-save">Save ₹1,100</span>
       </div>
     </div>
 
@@ -834,9 +842,9 @@ body.cursor-enabled {
       <div class="product-category">Festive</div>
       <div class="product-name">Crimson Skirt &amp; Jacket Set</div>
       <div class="product-pricing">
-        <span class="price-now">$104</span>
-        <span class="price-was">$160</span>
-        <span class="price-save">Save $56</span>
+        <span class="price-now">₹2,399</span>
+        <span class="price-was">₹3,199</span>
+        <span class="price-save">Save ₹800</span>
       </div>
     </div>
 
@@ -852,9 +860,9 @@ body.cursor-enabled {
       <div class="product-category">Accessories</div>
       <div class="product-name">Teal Jhumka Edit</div>
       <div class="product-pricing">
-        <span class="price-now">$145</span>
-        <span class="price-was">$290</span>
-        <span class="price-save">Save $145</span>
+        <span class="price-now">₹2,599</span>
+        <span class="price-was">₹3,799</span>
+        <span class="price-save">Save ₹1,200</span>
       </div>
     </div>
 

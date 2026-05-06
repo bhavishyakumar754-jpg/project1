@@ -97,6 +97,15 @@
       border: 1px solid var(--border);
       border-radius: 999px;
       background: var(--off-white);
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, transform 0.22s ease;
+    }
+
+    .nav-search:hover,
+    .nav-search:focus-within {
+      border-color: var(--text-mid);
+      background: var(--white);
+      box-shadow: 0 0 0 2px rgba(26,25,23,0.08), 0 8px 22px rgba(26,25,23,0.07);
+      transform: translateY(-1px);
     }
 
     .nav-search input {

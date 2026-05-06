@@ -102,11 +102,15 @@
       padding: 0 16px;
       font: inherit;
       outline: none;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, transform 0.22s ease;
     }
 
+    .search-form:hover input,
     .search-form input:focus {
       border-color: var(--gold);
       box-shadow: 0 0 0 3px rgba(184,150,78,0.13);
+      background: #ffffff;
+      transform: translateY(-1px);
     }
 
     .search-form button {
