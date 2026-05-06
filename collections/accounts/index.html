@@ -70,6 +70,35 @@
       gap: 1.4rem;
     }
 
+    .account-search {
+      display: inline-flex;
+      align-items: center;
+      min-width: 160px;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .account-search input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .account-search input::placeholder {
+      color: #a7a19a;
+    }
+
     .account-shell {
       min-height: calc(100vh - 68px);
       display: flex;
@@ -294,6 +323,38 @@
     }
 
     .signup-row a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      .account-nav {
+        height: auto;
+        min-height: 72px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 1rem 16px;
+      }
+
+      .account-nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .account-nav a {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .account-shell {
+        min-height: auto;
+        padding: 2rem 1rem 3rem;
+      }
+
+      .account-search {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -303,7 +364,9 @@
       <img src="../../assets/kiwadv3 (3).png" alt="KIWAD"/>
     </a>
     <div class="account-nav-links">
-      <a href="../search/">Search</a>
+      <form class="account-search" action="search/" method="get" role="search">
+        <input type="search" name="q" placeholder="Search" autocomplete="off">
+      </form>
       <a href="../cart/">Cart</a>
       <a href="./" class="active">Account</a>
     </div>

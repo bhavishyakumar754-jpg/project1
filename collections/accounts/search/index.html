@@ -3,153 +3,295 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Search</title>
+  <title>Search - KIWAD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf8f4;
+      --paper: #ffffff;
+      --ink: #1a1917;
+      --muted: #746d64;
+      --line: #e4ddd3;
+      --gold: #b8964e;
+    }
 
     body {
-      font-family: sans-serif;
-      background: #fff;
-      color: #111;
-      padding: 40px 20px;
+      min-height: 100vh;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
     }
 
-    h2 {
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-
-    .search-bar {
+    .search-nav {
+      min-height: 72px;
+      padding: 0 5vw;
       display: flex;
       align-items: center;
-      border: 1.5px solid #ccc;
-      border-radius: 8px;
-      padding: 10px 14px;
-      max-width: 500px;
-      gap: 10px;
-      transition: border-color 0.2s;
+      justify-content: space-between;
+      background: rgba(250,248,244,0.94);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    .search-bar:focus-within {
-      border-color: #111;
-    }
-
-    .search-bar input {
-      flex: 1;
-      border: none;
-      outline: none;
-      font-size: 15px;
-      color: #111;
-      background: transparent;
-    }
-
-    .search-bar input::placeholder {
-      color: #aaa;
-    }
-
-    .search-bar button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #aaa;
-      display: flex;
-      align-items: center;
-      padding: 0;
-      transition: color 0.2s;
-    }
-
-    .search-bar button:hover { color: #111; }
-
-    /* Results */
-    #results {
-      margin-top: 20px;
-      max-width: 500px;
-    }
-
-    .result-item {
-      padding: 12px 14px;
-      border: 1px solid #eee;
-      border-radius: 6px;
-      margin-bottom: 8px;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    .result-item:hover { background: #f9f9f9; }
-
-    .result-item mark {
-      background: #fff3b0;
-      border-radius: 2px;
-    }
-
-    .no-results {
-      color: #aaa;
+    .search-logo {
+      color: var(--ink);
       font-size: 14px;
-      padding: 12px 0;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-decoration: none;
+    }
+
+    .search-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .search-links a {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .search-links a:hover { color: var(--ink); }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 24px 72px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 7vw, 82px);
+      font-weight: 300;
+      line-height: 0.98;
+      margin-bottom: 28px;
+    }
+
+    .search-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .search-form input {
+      min-height: 54px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 0 16px;
+      font: inherit;
+      outline: none;
+    }
+
+    .search-form input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184,150,78,0.13);
+    }
+
+    .search-form button {
+      min-height: 54px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #ffffff;
+      padding: 0 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .result-count {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 24px 0;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .result {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .result img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      background: #f1ede6;
+    }
+
+    .result-body {
+      padding: 16px;
+    }
+
+    .result-type {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .result-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .result-price {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .empty {
+      display: none;
+      padding: 44px 0;
+      color: var(--muted);
+    }
+
+    .empty.show { display: block; }
+
+    mark {
+      background: rgba(184,150,78,0.18);
+      color: inherit;
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    @media (max-width: 760px) {
+      .search-nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+
+      .search-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .search-links a { font-size: 10px; }
+      .search-form { grid-template-columns: 1fr; }
+      .results { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+  <nav class="search-nav" aria-label="Primary">
+    <a href="../../../" class="search-logo">KIWAD</a>
+    <div class="search-links">
+      <a href="../../">Shop</a>
+      <a href="../../newpage/">New</a>
+      <a href="../">Account</a>
+      <a href="../../cart/">Cart</a>
+    </div>
+  </nav>
 
-  <h2>Search Items</h2>
+  <main>
+    <p class="eyebrow">Hardcoded Search</p>
+    <h1>Search the edit</h1>
 
-  <div class="search-bar">
-    <!-- Search icon -->
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round">
-      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-    </svg>
+    <form class="search-form" action="./" method="get" role="search">
+      <input id="searchInput" type="search" name="q" placeholder="Search anarkali, dupatta, cobalt..." autocomplete="off"/>
+      <button type="submit">Search</button>
+    </form>
 
-    <input type="text" id="searchInput" placeholder="Search…" oninput="search()"/>
-
-    <!-- Clear button -->
-    <button onclick="clearSearch()" title="Clear">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-  </div>
-
-  <div id="results"></div>
+    <p class="result-count" id="resultCount">0 results</p>
+    <section class="results" id="results"></section>
+    <p class="empty" id="emptyState">No hardcoded matches. Try festive, dupatta, cobalt, olive, or sale.</p>
+  </main>
 
   <script>
-    // ── Add your items here ──
-    const items = [
-      'White T-Shirt',
-      'Blue Jeans',
-      'Black Hoodie',
-      'Leather Jacket',
-      'Summer Dress',
-      'Wool Coat',
-      'Sneakers',
-      'Running Shorts',
-      'Denim Jacket',
-      'Silk Blouse',
+    const products = [
+      { name: 'Ivory Embroidered Anarkali', type: 'Festive Sets', price: 8490, tags: ['ivory', 'embroidered', 'anarkali', 'festive'], image: '../../../assets/look-ivory-embroidered-anarkali.png' },
+      { name: 'Lime Brocade Straight Set', type: 'Straight Sets', price: 5950, tags: ['lime', 'brocade', 'sale', 'straight'], image: '../../../assets/look-lime-blue-brocade-set.png' },
+      { name: 'Olive Leaf Dupatta Set', type: 'Dupatta Sets', price: 4290, tags: ['olive', 'leaf', 'dupatta'], image: '../../../assets/look-olive-lilac-leaf-dupatta-set.png' },
+      { name: 'Rust Ikat Coord Set', type: 'Co-ords', price: 6750, tags: ['rust', 'ikat', 'coord'], image: '../../../assets/look-rust-ikat-coord-set.png' },
+      { name: 'Crimson Flared Coord Set', type: 'Co-ords', price: 3990, tags: ['crimson', 'coord', 'sale'], image: '../../../assets/look-crimson-flared-coord-set.png' },
+      { name: 'Teal Sharara Set', type: 'Festive Sets', price: 7200, tags: ['teal', 'sharara', 'festive'], image: '../../../assets/look-teal-sharara-dupatta-set.png' },
+      { name: 'Cobalt Dupatta Coord Set', type: 'Dupatta Sets', price: 14500, tags: ['cobalt', 'dupatta', 'coord'], image: '../../../assets/look-cobalt-dupatta-coord-set.png' },
+      { name: 'Kiwad Accessories Edit', type: 'Accessories', price: 3200, tags: ['accessories', 'jewellery', 'display'], image: '../../../assets/campaign-accessories-display.png' }
     ];
 
-    function search() {
-      const query = document.getElementById('searchInput').value.trim().toLowerCase();
-      const box   = document.getElementById('results');
+    const input = document.getElementById('searchInput');
+    const results = document.getElementById('results');
+    const count = document.getElementById('resultCount');
+    const empty = document.getElementById('emptyState');
+    const params = new URLSearchParams(window.location.search);
+    const query = (params.get('q') || '').trim().toLowerCase();
 
-      if (!query) { box.innerHTML = ''; return; }
+    input.value = query;
 
-      const matches = items.filter(i => i.toLowerCase().includes(query));
-
-      if (matches.length === 0) {
-        box.innerHTML = '<p class="no-results">No items found.</p>';
-        return;
-      }
-
-      box.innerHTML = matches.map(item => {
-        const highlighted = item.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>');
-        return `<div class="result-item">${highlighted}</div>`;
-      }).join('');
+    function fmt(value) {
+      return '₹' + value.toLocaleString('en-IN');
     }
 
-    function clearSearch() {
-      document.getElementById('searchInput').value = '';
-      document.getElementById('results').innerHTML = '';
+    function esc(value) {
+      return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
+
+    function highlight(value) {
+      if (!query) return value;
+      return value.replace(new RegExp(`(${esc(query)})`, 'ig'), '<mark>$1</mark>');
+    }
+
+    function matches(product) {
+      if (!query) return true;
+      return [product.name, product.type, ...product.tags].join(' ').toLowerCase().includes(query);
+    }
+
+    const matched = products.filter(matches);
+    count.textContent = `${matched.length} result${matched.length === 1 ? '' : 's'}`;
+    empty.classList.toggle('show', matched.length === 0);
+    results.innerHTML = matched.map(product => `
+      <article class="result">
+        <img src="${product.image}" alt="${product.name}" loading="lazy">
+        <div class="result-body">
+          <p class="result-type">${highlight(product.type)}</p>
+          <h2 class="result-name">${highlight(product.name)}</h2>
+          <p class="result-price">${fmt(product.price)}</p>
+        </div>
+      </article>
+    `).join('');
   </script>
-
 </body>
 </html>

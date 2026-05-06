@@ -133,6 +133,21 @@ body.cursor-enabled {
   }
   .nav-actions a:hover,
   .nav-actions button:hover { color: var(--ink); }
+  .nav-search {
+    display: inline-flex; align-items: center;
+    min-width: 164px; height: 36px; padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(253,252,250,0.72);
+  }
+  .nav-search input {
+    width: 100%; min-width: 0;
+    border: 0; outline: 0; background: transparent;
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .nav-search input::placeholder { color: var(--ink-muted); }
   .cart-btn {
     background: var(--ink) !important;
     color: var(--cream) !important;
@@ -190,6 +205,7 @@ body.cursor-enabled {
     text-transform: uppercase;
     text-decoration: none;
   }
+  .nav-mobile-actions .nav-search { width: 100%; min-width: 0; min-height: 44px; }
   body.nav-open { overflow: hidden; }
 
   /* ── HERO ── */
@@ -641,7 +657,9 @@ body.cursor-enabled {
    
   </ul>
   <div class="nav-actions">
-    <a href="../../../search/">Search</a>
+    <form class="nav-search" action="../../../accounts/search/" method="get" role="search">
+      <input type="search" name="q" placeholder="Search" autocomplete="off">
+    </form>
     <a href="../../../accounts/">Account</a>
     <a href="../../../cart/" class="cart-btn">Bag (0)</a>
   </div>
@@ -652,7 +670,9 @@ body.cursor-enabled {
       <li><a href="../../../../">home</a></li>
     </ul>
     <div class="nav-mobile-actions">
-      <a href="../../../search/">Search</a>
+      <form class="nav-search" action="../../../accounts/search/" method="get" role="search">
+        <input type="search" name="q" placeholder="Search" autocomplete="off">
+      </form>
       <a href="../../../accounts/">Account</a>
       <a href="../../../cart/" class="cart-btn">Bag (0)</a>
     </div>
@@ -890,7 +910,7 @@ body.cursor-enabled {
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-logo"><img src="../../../../assets/kiwad.jpg" alt="KIWAD" class="footer-logo-image" /></div>
+      <div class="footer-logo"><img src="../../../../assets/kiwadv3 (3).png" alt="KIWAD" class="footer-logo-image" /></div>
       <p class="footer-tagline">Timeless clothing for the considered wardrobe. Designed to last, made to be worn.</p>
     </div>
     <div class="footer-col">

@@ -25,6 +25,78 @@
             line-height: 1.8;
         }
 
+        .about-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            min-height: 72px;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        .about-nav-logo {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-decoration: none;
+        }
+
+        .about-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+        }
+
+        .about-nav-links a {
+            color: #b0b0b0;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .about-nav-links a:hover,
+        .about-nav-links a.active {
+            color: #d4af37;
+        }
+
+        .about-search {
+            display: inline-flex;
+            align-items: center;
+            min-width: 156px;
+            height: 36px;
+            padding: 0 12px;
+            border: 1px solid rgba(212, 175, 55, 0.24);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .about-search input {
+            width: 100%;
+            min-width: 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .about-search input::placeholder {
+            color: #b0b0b0;
+        }
+
 
         /* --- BACKGROUND ELEMENTS --- */
         .bg-gradient {
@@ -445,6 +517,29 @@
         }
 
         @media (max-width: 768px) {
+            .about-nav {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+                padding-top: 16px;
+                padding-bottom: 16px;
+            }
+
+            .about-nav-links {
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .about-nav-links a {
+                font-size: 0.64rem;
+            }
+
+            .about-search {
+                width: 100%;
+            }
+
             .section-title {
                 font-size: 2.5rem;
             }
@@ -488,6 +583,21 @@
     </style>
 </head>
 <body>
+
+    <nav class="about-nav" aria-label="Primary">
+        <a href="../../../" class="about-nav-logo">KIWAD</a>
+        <div class="about-nav-links">
+            <a href="../../">Collections</a>
+            <a href="../">New</a>
+            <a href="sale/">Sale</a>
+            <a href="./" class="active">About</a>
+            <form class="about-search" action="../../accounts/search/" method="get" role="search">
+                <input type="search" name="q" placeholder="Search" autocomplete="off">
+            </form>
+            <a href="../../accounts/">Account</a>
+            <a href="../../cart/">Cart</a>
+        </div>
+    </nav>
 
     <!-- ABOUT SECTION START -->
     <section class="about-section">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Cart — kiwad</title>
+  <title>Your Cart — KIWAD</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -88,6 +88,34 @@
 
     .nav-icon-btn:hover { color: var(--text); }
 
+    .nav-search {
+      display: inline-flex;
+      align-items: center;
+      min-width: 160px;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--off-white);
+    }
+
+    .nav-search input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .nav-search input::placeholder {
+      color: var(--text-light);
+    }
+
     .cart-badge {
       position: absolute; top: -2px; right: -4px;
       background: var(--text); color: var(--white);
@@ -138,6 +166,42 @@
     @media (max-width: 900px) {
       .cart-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .brand { font-size: 20px; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        height: auto;
+        min-height: 72px;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 14px 1.25rem 16px;
+      }
+
+      .brand {
+        position: static;
+        transform: none;
+        order: -1;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-left,
+      .nav-right {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .nav-left a,
+      .nav-right a {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+
+      .nav-search {
+        width: 100%;
+        min-width: 0;
+      }
     }
 
     /* ── CART ITEMS ── */
@@ -567,7 +631,9 @@
       </nav>
       <a href="../../" class="brand">KIWAD</a>
       <div class="nav-right">
-        <a href="../search/">Search</a>
+        <form class="nav-search" action="../accounts/search/" method="get" role="search">
+          <input type="search" name="q" placeholder="Search" autocomplete="off">
+        </form>
         <a href="../accounts/">Account</a>
         <a href="#" class="nav-icon-btn" aria-label="Cart">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">

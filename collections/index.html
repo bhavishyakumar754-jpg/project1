@@ -16,7 +16,7 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#" class="nav-logo"><img src="../assets/kiwadv3 (3).png" alt="KIWAD" class="brand-logo-image" /></a>
+    <a href="../" class="nav-logo"><img src="../assets/kiwadv3 (3).png" alt="KIWAD" class="brand-logo-image" /></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
       aria-label="Toggle navigation">
       <span></span>
@@ -30,7 +30,9 @@
       <li><a href="../">Home</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="search/">Search</a>
+      <form class="nav-search" action="accounts/search/" method="get" role="search">
+        <input type="search" name="q" placeholder="Search" autocomplete="off" />
+      </form>
       <a href="accounts/">Account</a>
       <a href="cart/" data-bag-count>Bag (0)</a>
     </div>
@@ -42,7 +44,9 @@
         <li><a href="../">Home</a></li>
       </ul>
       <div class="nav-mobile-actions">
-        <a href="search/">Search</a>
+        <form class="nav-search" action="accounts/search/" method="get" role="search">
+          <input type="search" name="q" placeholder="Search" autocomplete="off" />
+        </form>
         <a href="accounts/">Account</a>
         <a href="cart/" data-bag-count>Bag (0)</a>
       </div>

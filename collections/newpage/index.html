@@ -71,6 +71,7 @@
     font-size: 22px; font-weight: 600;
     color: var(--brown-dark);
     letter-spacing: 1px;
+    text-decoration: none;
   }
   .nav-logo span { color: var(--gold); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -107,6 +108,22 @@
   .nav-icons a { color: var(--brown); display: inline-flex; text-decoration: none; }
   .nav-icons svg { width: 20px; height: 20px; stroke: currentColor; cursor: pointer; transition: stroke 0.3s, color 0.3s; }
   .nav-icons a:hover { color: var(--gold); }
+  .nav-search {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-width: 164px; height: 36px; padding: 0 12px;
+    border: 1px solid rgba(201,169,122,0.28);
+    border-radius: 999px; background: rgba(255,255,255,0.62);
+    color: var(--brown);
+  }
+  .nav-search button {
+    border: 0; background: transparent; color: inherit; display: inline-flex; padding: 0;
+  }
+  .nav-search input {
+    width: 100%; min-width: 0; border: 0; outline: 0; background: transparent;
+    color: var(--text-dark); font-family: 'Montserrat', sans-serif;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .nav-search input::placeholder { color: var(--text-light); }
   .cart-badge {
     position: relative; display: inline-block;
   }
@@ -171,6 +188,7 @@
     text-transform: uppercase;
     text-decoration: none;
   }
+  .nav-mobile-actions .nav-search { width: 100%; min-width: 0; min-height: 44px; }
   body.nav-open { overflow: hidden; }
 
   /* ── HERO ── */
@@ -556,7 +574,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">MAISON<span>.</span>ÉLITE</div>
+  <a href="../../" class="nav-logo">KIWAD<span>.</span></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
     aria-label="Toggle navigation">
     <span></span>
@@ -570,7 +588,10 @@
     <li><a href="../../">Home</a></li>
   </ul>
   <div class="nav-icons">
-    <a href="../search/" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
+    <form class="nav-search" action="../accounts/search/" method="get" role="search">
+      <button type="submit" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <input type="search" name="q" placeholder="Search" autocomplete="off">
+    </form>
     <a href="../accounts/" aria-label="Account" title="Account"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
     <a href="../cart/" class="cart-badge" aria-label="Cart" title="Cart">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -584,7 +605,9 @@
       <li><a href="../../">Home</a></li>
     </ul>
     <div class="nav-mobile-actions">
-      <a href="../search/">Search</a>
+      <form class="nav-search" action="../accounts/search/" method="get" role="search">
+        <input type="search" name="q" placeholder="Search" autocomplete="off">
+      </form>
       <a href="../accounts/">Account</a>
       <a href="../cart/">Bag (3)</a>
     </div>
@@ -982,7 +1005,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo">MAISON<span>.</span>ÉLITE</div>
+      <div class="logo">KIWAD<span>.</span></div>
       <p>Where refined taste meets contemporary design. Each piece is thoughtfully crafted to elevate your everyday style.</p>
       <div class="social-links">
         <div class="social-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
