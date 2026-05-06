@@ -67,13 +67,15 @@
   }
   nav.is-menu-open { z-index: 9500; }
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--brown-dark);
-    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
   }
-  .nav-logo span { color: var(--gold); }
+  .brand-logo-image {
+    display: block;
+    height: 54px;
+    width: auto;
+  }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-toggle {
     display: none;
@@ -638,7 +640,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="../../" class="nav-logo">KIWAD<span>.</span></a>
+  <a href="../../" class="nav-logo"><img src="../../assets/kiwadv3 (3).png" alt="KIWAD" class="brand-logo-image"></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
     aria-label="Toggle navigation">
     <span></span>
