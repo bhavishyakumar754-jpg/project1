@@ -195,26 +195,54 @@
   .hero {
     margin-top: 72px;
     min-height: 85vh;
-    background: linear-gradient(135deg, var(--brown-deeper) 0%, var(--brown-dark) 50%, var(--brown) 100%);
+    background: var(--brown-deeper);
     display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
     text-align: center;
     padding: 4rem 5%;
   }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(201,151,42,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(201,151,42,0.12) 0%, transparent 70%);
+  .slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.4s ease-in-out;
   }
-  .hero-pattern {
-    position: absolute; inset: 0; opacity: 0.04;
-    background-image: repeating-linear-gradient(
-      45deg,
-      var(--gold-light) 0px, var(--gold-light) 1px,
-      transparent 1px, transparent 40px
-    );
+  .slide.active {
+    opacity: 1;
+  }
+  .slide-1 {
+    background-image:
+      linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
+      url("../../assets/campaign-dual-occasionwear-portrait.png");
+    background-position: center, center 1%;
+  }
+  .slide-2 {
+    background-image:
+      linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
+      url("../../assets/look-cocoa-kurta-salwar-set.png");
+    background-position: center, center 1%;
+  }
+  .slide-3 {
+    background-image:
+      linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
+      url("../../assets/portrait-teal-gold-jhumka.png");
+    background-position: center, center 1%;
+  }
+  .slide-4 {
+    background-image:
+      linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
+      url("../../assets/portrait-crimson-brocade-set.png");
+    background-position: center, center 1%;
+  }
+  .slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
   }
   .hero-content { position: relative; z-index: 2; max-width: 700px; }
   .hero-badge {
@@ -271,13 +299,26 @@
     text-decoration: none; display: inline-block;
   }
   .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
-  .hero-scroll {
-    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: rgba(255,255,255,0.4); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    animation: bounce 2s infinite;
+  .slide-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 5%;
+    display: flex;
+    gap: 10px;
+    z-index: 3;
   }
-  .hero-scroll svg { width: 20px; height: 20px; }
+  .dot {
+    width: 28px;
+    height: 2px;
+    padding: 0;
+    border: 0;
+    background: rgba(255,255,255,0.3);
+    transition: background 0.3s, width 0.3s;
+  }
+  .dot.active {
+    width: 48px;
+    background: var(--gold);
+  }
 
   /* ── FILTER BAR ── */
   .filter-section {
@@ -536,10 +577,6 @@
     from { opacity: 0; transform: translateY(32px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(6px); }
-  }
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -557,12 +594,39 @@
     .nav-toggle { display: inline-flex; }
     .nav-mobile-panel { display: block; }
   }
+  @media (min-width: 769px) {
+    .slide-1 {
+      background-image:
+        linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
+        url("../../assets/home/desktop/hero-dual-occasionwear.png");
+      background-position: center, center 1%;
+    }
+    .slide-2 {
+      background-image:
+        linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
+        url("../../assets/home/desktop/hero-cocoa-kurta-set.jpeg");
+      background-position: center, center 2%;
+    }
+    .slide-3 {
+      background-image:
+        linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
+        url("../../assets/home/desktop/hero-teal-jhumka.png");
+      background-position: center, center 2%;
+    }
+    .slide-4 {
+      background-image:
+        linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
+        url("../../assets/home/desktop/hero-crimson-brocade-set.png");
+      background-position: center, center 2%;
+    }
+  }
   @media (max-width: 600px) {
     .footer-grid { grid-template-columns: 1fr; }
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .filter-section { top: 60px; }
     .nav-mobile-panel { padding: 20px; }
     .nav-mobile-actions { grid-template-columns: 1fr; }
+    .slide-dots { left: 50%; transform: translateX(-50%); }
   }
   @media (hover: none), (pointer: coarse) {
     body { cursor: auto; }
@@ -628,7 +692,10 @@
 
 <!-- HERO -->
 <section class="hero" style="margin-top:0;">
-  <div class="hero-pattern"></div>
+  <div class="slide slide-1 active"></div>
+  <div class="slide slide-2"></div>
+  <div class="slide slide-3"></div>
+  <div class="slide slide-4"></div>
   <div class="hero-content">
     <div class="hero-badge">Spring / Summer 2025</div>
     <h1>The <em>New</em><br>Arrivals Edit</h1>
@@ -638,9 +705,11 @@
       <a href="#" class="btn-outline">View Lookbook</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-    Scroll
+  <div class="slide-dots" aria-label="Hero slides">
+    <button class="dot active" type="button" onclick="goToSlide(0)" aria-label="Show slide 1" aria-current="true"></button>
+    <button class="dot" type="button" onclick="goToSlide(1)" aria-label="Show slide 2"></button>
+    <button class="dot" type="button" onclick="goToSlide(2)" aria-label="Show slide 3"></button>
+    <button class="dot" type="button" onclick="goToSlide(3)" aria-label="Show slide 4"></button>
   </div>
 </section>
 
@@ -1057,6 +1126,38 @@
 </footer>
 
 <script>
+const slides = document.querySelectorAll('.hero .slide');
+const dots = document.querySelectorAll('.slide-dots .dot');
+let currentSlide = 0;
+let autoTimer;
+
+function goToSlide(n) {
+  if (!slides.length) return;
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide]?.classList.remove('active');
+  dots[currentSlide]?.removeAttribute('aria-current');
+  currentSlide = n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide]?.classList.add('active');
+  dots[currentSlide]?.setAttribute('aria-current', 'true');
+}
+
+function nextSlide() {
+  goToSlide((currentSlide + 1) % slides.length);
+}
+
+function startHeroAuto() {
+  clearInterval(autoTimer);
+  autoTimer = setInterval(nextSlide, 2500);
+}
+
+const hero = document.querySelector('.hero');
+if (hero && slides.length) {
+  hero.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  hero.addEventListener('mouseleave', startHeroAuto);
+  startHeroAuto();
+}
+
 function filterProducts(btn, cat) {
   document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
