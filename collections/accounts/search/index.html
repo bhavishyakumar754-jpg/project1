@@ -38,11 +38,15 @@
     }
 
     .search-logo {
-      color: var(--ink);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.24em;
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
+    }
+
+    .search-logo img {
+      display: block;
+      height: 54px;
+      width: auto;
     }
 
     .search-links {
@@ -221,7 +225,7 @@
 </head>
 <body>
   <nav class="search-nav" aria-label="Primary">
-    <a href="../../../" class="search-logo">KIWAD</a>
+    <a href="../../../" class="search-logo" aria-label="KIWAD home"><img src="../../../assets/kiwadv3 (3).png" alt="KIWAD"></a>
     <div class="search-links">
       <a href="../../">Shop</a>
       <a href="../../newpage/">New</a>

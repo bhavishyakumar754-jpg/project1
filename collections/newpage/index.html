@@ -4,31 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>New Arrivals – Latest Collection</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --white: #FFFFFF;
-    --cream: #FAF7F2;
-    --cream-dark: #F2EDE4;
-    --brown-light: #C9A97A;
-    --brown: #8B6340;
-    --brown-dark: #5C3D1E;
-    --brown-deeper: #3B2210;
-    --gold: #C9972A;
-    --gold-light: #E8C96A;
-    --gold-pale: #FDF3DC;
-    --text-dark: #2A1A0A;
-    --text-mid: #6B4C2A;
-    --text-light: #9C7A52;
+    --white: #FDFCFA;
+    --cream: #F7F4EF;
+    --cream-dark: #EDE3D3;
+    --brown-light: #C8A96E;
+    --brown: #6B6560;
+    --brown-dark: #1A1714;
+    --brown-deeper: #1A1714;
+    --gold: #C8A96E;
+    --gold-light: #EDE3D3;
+    --gold-pale: #F7F4EF;
+    --text-dark: #1A1714;
+    --text-mid: #6B6560;
+    --text-light: #B0AAA3;
+    --border: rgba(26,23,20,0.10);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
     color: var(--text-dark);
     overflow-x: hidden;
+    font-weight: 300;
   }
 
   /* CUSTOM CURSOR */
@@ -58,9 +60,9 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 1000;
-    background: rgba(250, 247, 242, 0.95);
+    background: rgba(253,252,250,0.92);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,169,122,0.3);
+    border-bottom: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%;
     height: 72px;
@@ -101,11 +103,11 @@
   nav.is-menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
   nav.is-menu-open .nav-toggle span:nth-child(3) { transform: rotate(-45deg); }
   .nav-links a {
-    text-decoration: none; font-size: 13px; font-weight: 500;
-    letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; font-size: 12px; font-weight: 300;
+    letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--text-mid); transition: color 0.3s;
   }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-links a:hover, .nav-links a.active { color: var(--text-dark); }
   .nav-icons { display: flex; gap: 1.2rem; align-items: center; }
   .nav-icons a { color: var(--brown); display: inline-flex; text-decoration: none; }
   .nav-icons svg { width: 20px; height: 20px; stroke: currentColor; cursor: pointer; transition: stroke 0.3s, color 0.3s; }
@@ -130,7 +132,7 @@
   }
   .nav-search input {
     width: 100%; min-width: 0; border: 0; outline: 0; background: transparent;
-    color: var(--text-dark); font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark); font-family: 'DM Sans', sans-serif;
     font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
   }
   .nav-search input::placeholder { color: var(--text-light); }
@@ -191,7 +193,7 @@
     align-items: center;
     justify-content: center;
     padding: 14px 12px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.18em;
@@ -225,25 +227,25 @@
   .slide-1 {
     background-image:
       linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
-      url("../../assets/Gemini_Generated_Image_nt72p3nt72p3nt72.png");
+      url("../../assets/newpage/ChatGPT Image May 8, 2026, 03_24_45 PM.png");
     background-position: center, center 1%;
   }
   .slide-2 {
     background-image:
       linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
-      url("../../assets/look-cocoa-kurta-salwar-set.png");
+      url("../../assets/newpage/Gemini_Generated_Image_sik672sik672sik6.png");
     background-position: center, center 1%;
   }
   .slide-3 {
     background-image:
       linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
-      url("../../assets/portrait-teal-gold-jhumka.png");
+      url("../../assets/newpage/ChatGPT Image May 8, 2026, 03_27_20 PM.png");
     background-position: center, center 1%;
   }
   .slide-4 {
     background-image:
       linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
-      url("../../assets/portrait-crimson-brocade-set.png");
+      url("../../assets/newpage/ChatGPT Image May 8, 2026, 03_26_02 PM.png");
     background-position: center, center 1%;
   }
   .slide::before {
@@ -266,9 +268,9 @@
     animation: fadeDown 0.8s ease both;
   }
   .hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3rem, 7vw, 5.5rem);
-    font-weight: 600;
+    font-weight: 300;
     color: var(--white);
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -290,25 +292,25 @@
     animation: fadeDown 0.8s 0.45s ease both;
   }
   .btn-gold {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--brown-light) 100%);
-    color: var(--white);
-    padding: 14px 36px; border: none; border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    background: var(--text-dark);
+    color: var(--cream);
+    padding: 14px 36px; border: 1px solid var(--text-dark); border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
     cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
     text-decoration: none; display: inline-block;
   }
-  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,151,42,0.4); }
+  .btn-gold:hover { transform: translateY(-1px); background: #3a3530; box-shadow: none; }
   .btn-outline {
     background: transparent;
     color: var(--white);
-    padding: 13px 36px; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    padding: 13px 36px; border: 1px solid rgba(255,255,255,0.4); border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
     cursor: pointer; transition: all 0.2s;
     text-decoration: none; display: inline-block;
   }
-  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-1px); }
   .slide-dots {
     position: absolute;
     bottom: 2rem;
@@ -341,11 +343,11 @@
   }
   .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .filter-tab {
-    padding: 8px 20px; border-radius: 40px;
+    padding: 8px 20px; border-radius: 2px;
     border: 1px solid rgba(201,169,122,0.4);
     background: transparent; color: var(--text-mid);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
     cursor: pointer; transition: all 0.2s;
   }
   .filter-tab:hover { border-color: var(--gold); color: var(--brown-dark); }
@@ -354,9 +356,9 @@
     color: var(--white);
   }
   .sort-select {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px; font-weight: 500; letter-spacing: 1px;
-    border: 1px solid rgba(201,169,122,0.4); border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.12em;
+    border: 1px solid rgba(201,169,122,0.4); border-radius: 2px;
     padding: 8px 16px; background: transparent; color: var(--text-mid);
     cursor: pointer; outline: none;
   }
@@ -378,10 +380,10 @@
     margin-bottom: 0.75rem; display: block;
   }
   .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 4vw, 3rem);
     color: var(--brown-deeper);
-    font-weight: 600;
+    font-weight: 300;
   }
   .section-title span { color: var(--gold); font-style: italic; }
 
@@ -393,30 +395,33 @@
 
   /* ── PRODUCT CARD ── */
   .product-card {
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    transition: transform 0.3s;
     cursor: pointer;
     position: relative;
     animation: fadeUp 0.6s ease both;
   }
   .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba(91,61,30,0.15);
+    transform: translateY(-3px);
   }
   .product-image-wrap {
     position: relative; overflow: hidden;
-    aspect-ratio: 3/4;
-    background: var(--cream-dark);
+    aspect-ratio: 2 / 3;
+    background: var(--cream);
   }
   .product-image-wrap img {
-    width: 100%; height: 100%; object-fit: cover;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    margin: 10px;
+    object-fit: contain;
+    object-position: center top;
     transition: transform 0.5s ease;
     display: block;
   }
   .product-card:hover .product-image-wrap img {
-    transform: scale(1.07);
+    transform: scale(1.015);
   }
   .product-badge {
     position: absolute; top: 12px; left: 12px;
@@ -450,7 +455,7 @@
     position: absolute; bottom: 0; left: 0; right: 0;
     background: var(--brown-dark);
     color: var(--white);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
     text-align: center; padding: 13px;
     transform: translateY(100%);
@@ -460,7 +465,7 @@
   .product-card:hover .quick-add { transform: translateY(0); }
   .quick-add:hover { background: var(--gold); }
 
-  .product-info { padding: 1.2rem; }
+  .product-info { padding: 14px 0 0; }
   .product-category {
     font-size: 10px; font-weight: 600; letter-spacing: 2px;
     text-transform: uppercase; color: var(--gold);
@@ -520,11 +525,13 @@
     gap: 3rem; margin-bottom: 3rem;
   }
   .footer-brand .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px; font-weight: 600;
-    color: var(--white); margin-bottom: 1rem;
+    margin-bottom: 1rem;
   }
-  .footer-brand .logo span { color: var(--gold); }
+  .footer-brand .brand-logo-image {
+    display: block;
+    height: 96px;
+    width: auto;
+  }
   .footer-brand p {
     font-size: 13px; line-height: 1.8; max-width: 280px;
     margin-bottom: 1.5rem;
@@ -535,6 +542,7 @@
     border: 1px solid rgba(201,169,122,0.3);
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; transition: all 0.3s;
+    text-decoration: none;
   }
   .social-link:hover { border-color: var(--gold); background: rgba(201,151,42,0.15); }
   .social-link svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; }
@@ -556,14 +564,14 @@
   }
   .newsletter-form input {
     flex: 1; background: transparent; border: none; outline: none;
-    padding: 10px 14px; font-family: 'Montserrat', sans-serif;
+    padding: 10px 14px; font-family: 'DM Sans', sans-serif;
     font-size: 12px; color: var(--white);
   }
   .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
   .newsletter-form button {
     background: var(--gold); border: none;
     padding: 10px 16px; cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 11px; font-weight: 600; letter-spacing: 1px;
     color: var(--white); transition: background 0.2s;
   }
@@ -608,25 +616,25 @@
     .slide-1 {
       background-image:
         linear-gradient(135deg, rgba(20, 16, 12, 0.62) 0%, rgba(20, 16, 12, 0.18) 100%),
-        url("../../assets/home/desktop/hero-dual-occasionwear.png");
+        url("../../assets/newpage/ChatGPT Image May 8, 2026, 03_24_45 PM.png");
       background-position: center, center 1%;
     }
     .slide-2 {
       background-image:
         linear-gradient(160deg, rgba(24, 18, 12, 0.5) 0%, rgba(24, 18, 12, 0.24) 100%),
-        url("../../assets/home/desktop/hero-cocoa-kurta-set.jpeg");
+        url("../../assets/newpage/Gemini_Generated_Image_sik672sik672sik6.png");
       background-position: center, center 2%;
     }
     .slide-3 {
       background-image:
         linear-gradient(120deg, rgba(18, 16, 12, 0.56) 0%, rgba(18, 16, 12, 0.2) 100%),
-        url("../../assets/home/desktop/hero-teal-jhumka.png");
+        url("../../assets/newpage/ChatGPT Image May 8, 2026, 03_27_20 PM.png");
       background-position: center, center 2%;
     }
     .slide-4 {
       background-image:
         linear-gradient(150deg, rgba(22, 14, 10, 0.56) 0%, rgba(22, 14, 10, 0.18) 100%),
-        url("../../assets/home/desktop/hero-crimson-brocade-set.png");
+        url("../../assets/newpage/ChatGPT Image May 8, 2026, 03_26_02 PM.png");
       background-position: center, center 2%;
     }
   }
@@ -1084,13 +1092,10 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo">KIWAD<span>.</span></div>
+      <a href="../../" class="logo" aria-label="KIWAD home"><img src="../../assets/kiwadv3 (3).png" alt="KIWAD" class="brand-logo-image"></a>
       <p>Where refined taste meets contemporary design. Each piece is thoughtfully crafted to elevate your everyday style.</p>
       <div class="social-links">
-        <div class="social-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
-        <div class="social-link"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
-        <div class="social-link"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
-        <div class="social-link"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <a class="social-link" href="https://www.instagram.com/kiwad._?igsh=MTgybGhtZzkzN2ZtZQ==" target="_blank" rel="noopener" aria-label="KIWAD Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
       </div>
     </div>
     <div class="footer-col">

@@ -65,16 +65,18 @@
     .nav-left a:hover, .nav-right a:hover { color: var(--text); }
 
     .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 400;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--text);
       text-decoration: none;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand img {
+      display: block;
+      height: 54px;
+      width: auto;
     }
 
     .nav-right { display: flex; gap: 1.5rem; align-items: center; }
@@ -638,7 +640,7 @@
         <a href="../newpage/">New Arrivals</a>
         <a href="../newpage/about/sale/">Sale</a>
       </nav>
-      <a href="../../" class="brand">KIWAD</a>
+      <a href="../../" class="brand" aria-label="KIWAD home"><img src="../../assets/kiwadv3 (3).png" alt="KIWAD"></a>
       <div class="nav-right">
         <form class="nav-search" action="../accounts/search/" method="get" role="search">
           <input type="search" name="q" placeholder="Search" autocomplete="off">

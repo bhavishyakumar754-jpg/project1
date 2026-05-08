@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <!-- Montserrat Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
         /* --- RESET & BASE STYLES --- */
@@ -17,12 +16,25 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --cream: #F7F4EF;
+            --warm-white: #FDFCFA;
+            --ink: #1A1714;
+            --ink-soft: #241F1A;
+            --ink-muted: #B0AAA3;
+            --accent: #C8A96E;
+            --accent-light: #EDE3D3;
+            --border-light: rgba(247, 244, 239, 0.12);
+            --border-accent: rgba(200, 169, 110, 0.38);
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0a0a0a;
-            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--ink);
+            color: var(--cream);
             overflow-x: hidden;
             line-height: 1.8;
+            font-weight: 300;
         }
 
         .about-nav {
@@ -34,17 +46,21 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(10, 10, 10, 0.88);
+            background: rgba(26, 23, 20, 0.9);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .about-nav-logo {
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.24em;
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        .about-nav-logo img {
+            display: block;
+            height: 54px;
+            width: auto;
         }
 
         .about-nav-links {
@@ -54,9 +70,9 @@
         }
 
         .about-nav-links a {
-            color: #b0b0b0;
+            color: var(--ink-muted);
             font-size: 0.72rem;
-            font-weight: 600;
+            font-weight: 300;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             text-decoration: none;
@@ -65,7 +81,7 @@
 
         .about-nav-links a:hover,
         .about-nav-links a.active {
-            color: #d4af37;
+            color: var(--accent);
         }
 
         .about-search {
@@ -74,17 +90,17 @@
             min-width: 156px;
             height: 36px;
             padding: 0 12px;
-            border: 1px solid rgba(212, 175, 55, 0.24);
+            border: 1px solid var(--border-accent);
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.05);
             transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, transform 0.22s ease;
         }
 
         .about-search:hover,
         .about-search:focus-within {
-            border-color: rgba(212, 175, 55, 0.72);
+            border-color: rgba(200, 169, 110, 0.72);
             background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.14), 0 8px 22px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.14), 0 8px 22px rgba(0, 0, 0, 0.18);
             transform: translateY(-1px);
         }
 
@@ -94,8 +110,8 @@
             border: 0;
             outline: 0;
             background: transparent;
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
             font-size: 0.68rem;
             font-weight: 600;
             letter-spacing: 0.12em;
@@ -103,9 +119,15 @@
         }
 
         .about-search input::placeholder {
-            color: #b0b0b0;
+            color: var(--ink-muted);
         }
 
+        .about-section {
+            position: relative;
+            min-height: calc(100vh - 72px);
+            padding: 96px 5% 88px;
+            overflow: hidden;
+        }
 
         /* --- BACKGROUND ELEMENTS --- */
         .bg-gradient {
@@ -114,8 +136,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 20% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 20% 20%, rgba(200, 169, 110, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(200, 169, 110, 0.05) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -123,6 +145,8 @@
         .content-wrapper {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* --- SECTION HEADER --- */
@@ -137,10 +161,10 @@
         .section-tag {
             display: inline-block;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 400;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: #d4af37;
+            color: var(--accent);
             margin-bottom: 20px;
             position: relative;
         }
@@ -152,7 +176,7 @@
             top: 50%;
             width: 40px;
             height: 1px;
-            background: #d4af37;
+            background: var(--accent);
             transition: width 0.5s ease;
         }
 
@@ -167,18 +191,17 @@
         }
 
         .section-title {
-            font-size: 3.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.8rem;
             font-weight: 300;
-            letter-spacing: -1px;
+            letter-spacing: 0;
             line-height: 1.2;
         }
 
         .section-title span {
-            font-weight: 700;
-            background: linear-gradient(135deg, #d4af37 0%, #f2d06b 50%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-style: italic;
+            font-weight: 300;
+            color: var(--accent);
         }
 
         /* --- MAIN CONTENT GRID --- */
@@ -212,7 +235,7 @@
             left: -15px;
             right: 15px;
             bottom: 15px;
-            border: 1px solid #d4af37;
+            border: 1px solid var(--accent);
             z-index: -1;
             transition: all 0.5s ease;
         }
@@ -229,6 +252,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
             transition: transform 0.7s ease;
         }
 
@@ -246,13 +270,13 @@
             font-size: 2rem;
             font-weight: 500;
             margin-bottom: 25px;
-            color: #f0f0f0;
+            color: var(--cream);
         }
 
         .about-content p {
             font-size: 1rem;
             font-weight: 300;
-            color: #b0b0b0;
+            color: rgba(247, 244, 239, 0.66);
             margin-bottom: 20px;
             line-height: 2;
         }
@@ -261,7 +285,7 @@
             margin-top: 30px;
             font-style: italic;
             font-weight: 400;
-            color: #d4af37;
+            color: var(--accent);
             font-size: 1.2rem;
         }
 
@@ -272,8 +296,8 @@
             gap: 30px;
             margin-bottom: 100px;
             padding: 60px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .stat-item {
@@ -286,7 +310,7 @@
         .stat-number {
             font-size: 3.5rem;
             font-weight: 700;
-            color: #d4af37;
+            color: var(--accent);
             margin-bottom: 10px;
             display: block;
         }
@@ -296,7 +320,7 @@
             font-weight: 500;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #888;
+            color: var(--ink-muted);
         }
 
         /* --- VALUES SECTION --- */
@@ -307,9 +331,10 @@
         .values-title {
             text-align: center;
             font-size: 2rem;
-            font-weight: 500;
             margin-bottom: 50px;
-            color: #f0f0f0;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            color: var(--cream);
         }
 
         .values-grid {
@@ -319,9 +344,9 @@
         }
 
         .value-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
             padding: 50px 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-light);
             border-radius: 5px;
             text-align: center;
             transition: all 0.4s ease;
@@ -330,28 +355,35 @@
         }
 
         .value-card:hover {
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
-            border-color: rgba(212, 175, 55, 0.3);
+            background: linear-gradient(145deg, rgba(200, 169, 110, 0.1) 0%, rgba(200, 169, 110, 0.02) 100%);
+            border-color: var(--border-accent);
             transform: translateY(-10px);
         }
 
         .value-icon {
-            font-size: 3rem;
-            margin-bottom: 25px;
-            display: block;
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 25px;
+            border: 1px solid var(--border-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
         }
 
         .value-card h4 {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 15px;
-            color: #fff;
+            color: var(--cream);
         }
 
         .value-card p {
             font-size: 0.9rem;
             font-weight: 300;
-            color: #999;
+            color: rgba(247, 244, 239, 0.58);
             line-height: 1.8;
         }
 
@@ -364,9 +396,10 @@
         .timeline-title {
             text-align: center;
             font-size: 2rem;
-            font-weight: 500;
             margin-bottom: 60px;
-            color: #f0f0f0;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            color: var(--cream);
         }
 
         .timeline {
@@ -382,7 +415,7 @@
             transform: translateX(-50%);
             width: 1px;
             height: 100%;
-            background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
         }
 
         .timeline-item {
@@ -404,8 +437,8 @@
 
         .timeline-content {
             padding: 20px 30px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-light);
             border-radius: 5px;
             margin-right: 30px;
             position: relative;
@@ -418,8 +451,8 @@
         }
 
         .timeline-content:hover {
-            background: rgba(212, 175, 55, 0.05);
-            border-color: rgba(212, 175, 55, 0.2);
+            background: rgba(200, 169, 110, 0.06);
+            border-color: var(--border-accent);
         }
 
         .timeline-dot {
@@ -428,9 +461,9 @@
             top: 25px;
             width: 12px;
             height: 12px;
-            background: #d4af37;
+            background: var(--accent);
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 20px rgba(200, 169, 110, 0.38);
         }
 
         .timeline-item:nth-child(even) .timeline-dot {
@@ -441,7 +474,7 @@
         .timeline-year {
             font-size: 0.85rem;
             font-weight: 700;
-            color: #d4af37;
+            color: var(--accent);
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
@@ -450,13 +483,13 @@
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
-            color: #fff;
+            color: var(--cream);
         }
 
         .timeline-content p {
             font-size: 0.9rem;
             font-weight: 300;
-            color: #999;
+            color: rgba(247, 244, 239, 0.58);
         }
 
         /* --- ANIMATION KEYFRAMES --- */
@@ -594,7 +627,7 @@
 <body>
 
     <nav class="about-nav" aria-label="Primary">
-        <a href="../../../" class="about-nav-logo">KIWAD</a>
+        <a href="../../../" class="about-nav-logo" aria-label="KIWAD home"><img src="../../../assets/kiwadv3 (3).png" alt="KIWAD"></a>
         <div class="about-nav-links">
             <a href="../../">Collections</a>
             <a href="../">New</a>
@@ -616,7 +649,7 @@
             <!-- Section Header -->
             <header class="section-header">
                 <span class="section-tag">Who We Are</span>
-                <h2 class="section-title">Crafting Excellence <br><span>Since The Beginning</span></h2>
+                <h2 class="section-title">Clothing with a quiet point of view <br><span>made for repeat wearing</span></h2>
             </header>
 
             <!-- About Grid -->
@@ -629,52 +662,52 @@
                 </div>
                 
                 <div class="about-content">
-                    <h3>We Are Visionaries In Our Industry</h3>
-                    <p>Founded on the principles of innovation and unwavering commitment, we have established ourselves as leaders in delivering exceptional solutions that transform the way businesses operate.</p>
-                    <p>Our journey began with a simple yet powerful idea: to revolutionize the standard of excellence. Today, we continue to push boundaries, challenge conventions, and set new benchmarks for quality and performance.</p>
-                    <p>With a team of passionate experts dedicated to their craft, we pride ourselves on creating experiences that resonate with authenticity and purpose. Every project we undertake is a testament to our relentless pursuit of perfection.</p>
-                    <p class="signature">— The Leadership Team</p>
+                    <h3>Designed around fabric, fit, and restraint</h3>
+                    <p>KIWAD builds occasionwear and everyday sets for wardrobes that need polish without excess. Each drop starts with textile, proportion, and colour before anything is cut.</p>
+                    <p>Our silhouettes are shaped for movement: clean kurtas, considered co-ords, detailed dupattas, and jewellery-led styling moments that can move between family gatherings, workdays, and late dinners.</p>
+                    <p>We keep the edit focused so every piece earns its place. The result is clothing that feels elevated on arrival and still useful seasons later.</p>
+                    <p class="signature">— KIWAD Studio</p>
                 </div>
             </div>
 
             <!-- Stats Section -->
             <div class="stats-section">
                 <div class="stat-item">
-                    <span class="stat-number" data-target="15">0</span>
-                    <span class="stat-label">Years Experience</span>
+                    <span class="stat-number" data-target="12">0</span>
+                    <span class="stat-label">Seasonal Drops</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="500">0</span>
-                    <span class="stat-label">Projects Delivered</span>
+                    <span class="stat-number" data-target="80">0</span>
+                    <span class="stat-label">Original Prints</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="120">0</span>
-                    <span class="stat-label">Team Members</span>
+                    <span class="stat-number" data-target="24">0</span>
+                    <span class="stat-label">Craft Partners</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="50">0</span>
-                    <span class="stat-label">Global Awards</span>
+                    <span class="stat-number" data-target="4">0</span>
+                    <span class="stat-label">Core Fits</span>
                 </div>
             </div>
 
             <!-- Values Section -->
             <div class="values-section">
-                <h3 class="values-title">Our Core Values</h3>
+                <h3 class="values-title">What Guides The Edit</h3>
                 <div class="values-grid">
                     <div class="value-card">
-                        <span class="value-icon">💎</span>
-                        <h4>Excellence</h4>
-                        <p>We never settle for mediocrity. Every detail matters, and we strive for perfection in every endeavor we undertake.</p>
+                        <span class="value-icon">01</span>
+                        <h4>Material First</h4>
+                        <p>Fabric handle, fall, and finish decide the shape of every garment before trend or ornament.</p>
                     </div>
                     <div class="value-card">
-                        <span class="value-icon">🤝</span>
-                        <h4>Integrity</h4>
-                        <p>We believe in transparency, honesty, and building lasting relationships based on trust and mutual respect.</p>
+                        <span class="value-icon">02</span>
+                        <h4>Considered Detail</h4>
+                        <p>Embroidery, borders, buttons, and trims are used with restraint so the final piece stays wearable.</p>
                     </div>
                     <div class="value-card">
-                        <span class="value-icon">🚀</span>
-                        <h4>Innovation</h4>
-                        <p>We embrace change and continuously seek new ways to push boundaries and create groundbreaking solutions.</p>
+                        <span class="value-icon">03</span>
+                        <h4>Longer Use</h4>
+                        <p>Colour stories and silhouettes are chosen to work across occasions instead of a single event.</p>
                     </div>
                 </div>
             </div>
@@ -686,33 +719,33 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <span class="timeline-year">2010</span>
-                            <h4>The Beginning</h4>
-                            <p>Founded in a small garage with a vision to change the industry forever.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-year">2015</span>
-                            <h4>Global Expansion</h4>
-                            <p>Opened our first international office and expanded operations to 20+ countries.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-year">2018</span>
-                            <h4>Industry Recognition</h4>
-                            <p>Won our first major industry award, solidifying our position as market leaders.</p>
+                            <span class="timeline-year">2021</span>
+                            <h4>The First Edit</h4>
+                            <p>A compact festive capsule set the tone for focused drops and textile-led design.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <span class="timeline-year">2023</span>
-                            <h4>New Milestone</h4>
-                            <p>Reached 500+ successful projects and launched our next-generation platform.</p>
+                            <h4>Everyday Sets</h4>
+                            <p>We expanded into lighter kurta sets, co-ords, and dupatta-led pieces for regular rotation.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2025</span>
+                            <h4>Occasionwear Refined</h4>
+                            <p>Sharper tailoring, richer brocades, and jewellery-focused styling shaped the occasion edit.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2026</span>
+                            <h4>The Current Season</h4>
+                            <p>New arrivals now pair quiet neutrals with saturated festive colour and cleaner proportions.</p>
                         </div>
                     </div>
                 </div>
@@ -802,8 +835,8 @@
                     const x = (e.clientX / window.innerWidth - 0.5) * 20;
                     const y = (e.clientY / window.innerHeight - 0.5) * 20;
                     gradient.style.background = `
-                        radial-gradient(ellipse at ${50 + x}% ${20 + y}%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at ${80 - x}% ${80 - y}%, rgba(212, 175, 55, 0.05) 0%, transparent 50%)
+                        radial-gradient(ellipse at ${50 + x}% ${20 + y}%, rgba(200, 169, 110, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at ${80 - x}% ${80 - y}%, rgba(200, 169, 110, 0.05) 0%, transparent 50%)
                     `;
                 }
             });

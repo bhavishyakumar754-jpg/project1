@@ -785,62 +785,55 @@ section {
 
 .product-img {
     position: relative;
-    aspect-ratio: 3/4;
+    aspect-ratio: 2 / 3;
     overflow: hidden;
+    background: #f1ede6;
     margin-bottom: 16px;
 }
 
 .product-bg {
     position: absolute;
-    inset:0;
-    background-size: cover;
-    background-position: center;
+    inset: 10px;
+    background-size: contain;
+    background-position: center top;
     background-repeat: no-repeat;
     transition: transform 0.5s ease;
 }
 
 .product-card:hover .product-bg {
-    transform: scale(1.04);
+    transform: scale(1.015);
 }
 
 .pb-1 {
     background-image: url("assets/look-ivory-embroidered-anarkali.png");
-    background-position: center 12%;
 }
 
 .pb-2 {
     background-image: url("assets/look-lime-blue-brocade-set.png");
-    background-position: center 12%;
 }
 
 .pb-3 {
     background-image: url("assets/look-olive-lilac-leaf-dupatta-set.png");
-    background-position: center 12%;
 }
 
 .pb-4 {
     background-image: url("assets/look-rust-ikat-coord-set.png");
-    background-position: center 12%;
 }
 
 .pb-5 {
     background-image: url("assets/look-crimson-flared-coord-set.png");
-    background-position: center 12%;
 }
 
 .pb-6 {
     background-image: url("assets/look-teal-sharara-dupatta-set.png");
-    background-position: center 12%;
 }
 
 .pb-7 {
     background-image: url("assets/look-cobalt-dupatta-coord-set.png");
-    background-position: center 12%;
 }
 
 .pb-8 {
     background-image: url("assets/look-crimson-brocade-skirt-set.png");
-    background-position: center 12%;
 }
 
 /* Clothing silhouette hints */
