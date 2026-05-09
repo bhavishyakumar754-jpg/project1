@@ -524,6 +524,21 @@
       text-transform: uppercase;
       color: var(--mid);
     }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+    .footer-links a {
+      color: var(--mid);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--ink); }
 
     /* TOAST */
     .toast {
@@ -556,7 +571,8 @@
       .hero-meta { text-align: left; }
       .filters-bar { padding: 16px 24px; flex-direction: column; gap: 14px; align-items: flex-start; }
       .collection-grid { padding: 32px 24px 60px; gap: 36px 16px; grid-template-columns: repeat(2, 1fr); }
-      .footer-strip { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+      .footer-strip { padding: 20px 24px; flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links { justify-content: center; gap: 12px; }
     }
 
     @media (max-width: 520px) {

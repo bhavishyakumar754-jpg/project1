@@ -557,6 +557,12 @@
     cursor: pointer; transition: color 0.2s;
   }
   .footer-col li:hover { color: var(--gold-light); }
+  .footer-col a {
+    color: rgba(255,255,255,0.58);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold-light); }
   .footer-newsletter { margin-top: 1rem; }
   .newsletter-form {
     display: flex; margin-top: 0.8rem;
@@ -611,6 +617,7 @@
     .nav-links, .nav-icons { display: none; }
     .nav-toggle { display: inline-flex; }
     .nav-mobile-panel { display: block; }
+    .filter-section { position: static; top: auto; z-index: auto; }
   }
   @media (min-width: 769px) {
     .slide-1 {
@@ -641,7 +648,6 @@
   @media (max-width: 600px) {
     .footer-grid { grid-template-columns: 1fr; }
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .filter-section { top: 60px; }
     .nav-mobile-panel { padding: 20px; }
     .nav-mobile-actions { grid-template-columns: 1fr; }
     .slide-dots { left: 50%; transform: translateX(-50%); }
@@ -1101,42 +1107,30 @@
     <div class="footer-col">
       <h4>Shop</h4>
       <ul>
-        <li>New Arrivals</li>
-        <li>Dresses</li>
-        <li>Tops & Blouses</li>
-        <li>Outerwear</li>
-        <li>Bottoms</li>
-        <li>Sale</li>
+        <li><a href="../">Collections</a></li>
+        <li><a href="./">New Arrivals</a></li>
+        <li><a href="about/sale/">Sale</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Help</h4>
+      <h4>Visit</h4>
       <ul>
-        <li>Size Guide</li>
-        <li>Shipping & Returns</li>
-        <li>Track My Order</li>
-        <li>FAQs</li>
-        <li>Contact Us</li>
-        <li>Sustainability</li>
+        <li><a href="../../">Home</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="../accounts/search/">Search</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Newsletter</h4>
-      <p style="font-size:13px;line-height:1.8;margin-bottom:0.5rem;">Be the first to know about new arrivals and exclusive offers.</p>
-      <div class="newsletter-form">
-        <input type="email" placeholder="Your email address">
-        <button>Join</button>
-      </div>
-      <p style="font-size:11px;margin-top:0.8rem;opacity:0.5;">By subscribing you agree to our Privacy Policy.</p>
+      <h4>Account</h4>
+      <ul>
+        <li><a href="../accounts/">Account</a></li>
+        <li><a href="../cart/">Cart</a></li>
+      </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Maison Élite. All rights reserved.</span>
-    <div>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Cookies</a>
-    </div>
+    <span>© 2026 KIWAD. All rights reserved.</span>
+    <a href="https://www.instagram.com/kiwad._?igsh=MTgybGhtZzkzN2ZtZQ==" target="_blank" rel="noopener">Instagram</a>
   </div>
 </footer>
 
